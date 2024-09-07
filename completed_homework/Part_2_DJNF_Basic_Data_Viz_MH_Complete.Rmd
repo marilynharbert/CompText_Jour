@@ -67,6 +67,9 @@ File renamed to: SF_311_Jan29.xlsx
 ```{r message=FALSE, warning=FALSE}
 #background on tidyverse: https://www.tidyverse.org/packages/
 #load the lubridate, tidyverse and janitor libraries
+library(lubridate)
+library(tidyverse)
+library(janitor)
 
 ```
 
@@ -80,6 +83,7 @@ SF <- rio::import("https://docs.google.com/spreadsheets/d/1-nkosLJKkfeLSl-UG82DD
 
 ```{r}
 #display the first six rows of SF using head
+head(SF,6)
 ```
 
 **Really Interview the Data** How big are you? Rows? Columns? List of
@@ -87,6 +91,8 @@ column names?
 
 ```{r}
 #examine all of the SF data using glimpse
+glimpse(SF)
+
 ```
 
 **Clean column names, Process dates**
@@ -171,13 +177,23 @@ ggplot(Years,aes(x = year, y = n,
        x="Year")
 ```
 
-**Filter a dataset, build a chart in one code block**
+**Filter the dataset above and build a chart in one code block**
 
 ```{r}
 #Copy section of code from above...
-# SF %>% 
-#    count(year) %>% 
-#    group_by(year) %>% 
+ SF %>% 
+    count(year) %>% 
+    group_by(year) %>% 
+    ggplot(aes(x = year, y = n,
+             fill = n)) +
+      geom_col(position = "dodge") + 
+      theme(legend.position = "none") +
+#This is your title sequence
+      labs(title = "311 Calls for Service By Day, San Francisco",
+          subtitle = "SF PD Service Call Data, 2016-2019",
+          caption = "Graphic by Rob Wells, 2-12-2022",
+          y="Number of Calls",
+          x="Year")
 #Sandwich it onto a simple ggplot that you created in the prior code chunk
   
 ```
@@ -190,12 +206,40 @@ ggplot(Years,aes(x = year, y = n,
 by day
 
 ```{r}
+SF_call_dates <- SF %>%
+  count(call_date) %>%
+  group_by(call_date)
+
+max(SF_call_dates$n)
+
+highest_call_day <- SF_call_dates %>%
+  filter(n==232)
+
+print(highest_call_day$call_date)
+  
 
 ```
 
 **2) Chart Calls by Day** Use the code above and add a ggplot chart to it
 
 ```{r}
+
+SF_call_dates <- SF %>%
+  count(call_date) %>%
+  group_by(call_date) %>%
+  ggplot(aes(x = call_date, y = n,
+             fill = n)) +
+      geom_col(position = "dodge") + 
+      theme(legend.position = "none") +
+#This is your title sequence
+      labs(title = "311 Calls for Service By Day, San Francisco",
+          subtitle = "SF PD Service Call Data, 2016-2019",
+          caption = "Graphic by Marilyn Harbert, 09-04-2024",
+          y="Number of Calls",
+          x="Date")
+
+plot(SF_call_dates)
+
 
 ```
 
@@ -264,6 +308,8 @@ rescue](https://dplyr.tidyverse.org/reference/slice.html)
 
 ```{r}
 
+Days %>% slice_max(n, n = 5)
+
 ```
 
 **Question**: Identify the top 5 days with the fewest calls?
@@ -271,6 +317,8 @@ rescue](https://dplyr.tidyverse.org/reference/slice.html)
 Pro tip: [slice_min](https://dplyr.tidyverse.org/reference/slice.html)
 
 ```{r}
+
+Days %>% slice_min(n, n = 5)
 
 
 ```
@@ -302,7 +350,7 @@ data and provide the number of complaints
 ```{r}
 Types <- SF %>% count(original_crime_type_name) %>% 
   slice_max(n, n=5)
-Types
+Types  
 ```
 
 <br>
