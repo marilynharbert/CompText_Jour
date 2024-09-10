@@ -285,7 +285,7 @@ Stenhaug](https://www.youtube.com/watch?v=6xbGZDUu5W4) <br>\
 **Export to spreadsheet**
 
 ```{r}
-#write.csv(Days,"Days.csv")
+write.csv(Days,"Days.csv")
 ```
 
 <br>
