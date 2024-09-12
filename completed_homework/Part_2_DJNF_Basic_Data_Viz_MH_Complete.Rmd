@@ -444,7 +444,7 @@ ggsave("bubble.png",device = "png",width=9,height=6, dpi=800)
 (Thanks to Sean Mussenden for the material below)
 
 ```{r}
-ppp_maryland <- read_csv("../CompText_Jour/03_tutorials/qmd_files/assets/data/ppp_loans_md.csv.zip")
+ppp_maryland <- read_csv("/Users/marilynharbert/Code/CompText_Jour/03_tutorials/qmd_files/assets/data/ppp_loans_md.csv.zip")
 ```
 
 First, we'll create a dataframe of those top 10, called maryland_ppp_top_counties.

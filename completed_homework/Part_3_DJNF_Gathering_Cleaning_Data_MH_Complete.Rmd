@@ -133,8 +133,10 @@ broker <- separate(broker, col = address, into = c("street", "city"), sep = ",")
 **Create a table: Count cities**
 ```{r}
 #call your new table broker_city
-
-
+broker_city <- broker %>%
+  group_by(city) %>%
+  count() %>%
+  rename("total" = n)
 
 ```
 
@@ -203,6 +205,12 @@ SF$year <- year(SF$call_date2)
 **Total by disposition: Count**  
 ```{r}
 
+
+SF_count <- SF %>%
+  group_by(disposition) %>%
+  count() 
+
+action <- sum(SF_count$n)
 #put the count total in an object called Action
 
 ```
@@ -374,6 +382,10 @@ SF <- SF %>%
 ```{r}
 #remember this is a partial total
 #arrange the results in descending order
+SF %>%
+  group_by(crime_cleaned) %>%
+  count() %>%
+  arrange(desc(n))
 
 ```
 
@@ -455,7 +467,8 @@ SF %>%
 ```{r}
 #Find out when nothing happened with the officer's investigation.
 #A table filtering the dispositions column to show "no disposition" or "gone on arrival"
-
+nothing_hap <- SF %>%
+  filter(disposition == "ND" | disposition == "GOA")
 
 ```
 
@@ -464,12 +477,32 @@ SF %>%
 
 #Arrest, Cited, Criminal Activation, SF Fire Dept Medical Staff engaged
 
+serious_actions <- SF %>%
+  filter(disposition == "CIT" | 
+           disposition == "ARR" | 
+           disposition == "CRM" |
+           disposition == "SFD"
+  )
 
 ```
 
 ```{r}
 #Chart the number of calls by year and month
 
+SF %>% 
+  mutate(month = str_sub(yearmo, start = 6, end = 8)) %>%
+  group_by(year, month) %>% 
+  count(month) %>% 
+  ggplot(aes(x = month, y = n, fill=year)) +
+  geom_bar(position = "dodge2", stat = "identity", show.legend = TRUE) +
+  theme(axis.text.x = element_text(angle=90)) +
+  #Changes angle of x axis labels
+  #coord_flip() +    #this makes it a horizontal bar chart instead of vertical
+  labs(title = "Months and Years of Homeless Calls, San Francisco", 
+       subtitle = "SF PD Service Call Data by Month 2017-2019",
+       caption = "Graphic by Harbert",
+       y="Number of Calls",
+       x="Month")  
 
 ```
 
@@ -477,7 +510,38 @@ SF %>%
 #Build a summary table with the days of the week with the greatest
 #number of calls. Create a graphic. Then build a table to see if the complaints vary by day
 
+# summary
+SF <- SF %>%
+  mutate(day_of_week = weekdays(call_date2)) 
 
+sum_SF_days_of_week <- SF %>%
+  select(day_of_week) %>%
+  group_by(day_of_week) %>%
+  count() %>%
+  arrange(desc(n))
+
+# graphic
+
+p_sum_SF_days_of_week <- sum_SF_days_of_week %>%
+  ggplot(aes(x = day_of_week, y = n)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  theme(axis.text.x = element_text(angle=90)) +
+  #Changes angle of x axis labels
+  #coord_flip() +    #this makes it a horizontal bar chart instead of vertical
+  labs(title = "Days of the Week of Homeless Calls, San Francisco", 
+       subtitle = "SF PD Service Call Data by Day 2017-2019",
+       caption = "Graphic by Harbert",
+       y="Number of Calls",
+       x="Weekday")  
+
+p_sum_SF_days_of_week
+
+# table 
+
+SF_compl_by_days_of_week <- SF %>%
+  select(day_of_week, original_crime_type_name) %>%
+  group_by(day_of_week, original_crime_type_name) %>%
+  count()
 
 ```
 
