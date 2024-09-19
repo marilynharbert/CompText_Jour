@@ -1,0 +1,94 @@
+---
+title: "MH_Assignment1_Basic_R_proficiency"
+author: "Marilyn Harbert"
+date: "2024-09-19"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+#loading the libraries
+library(rio)
+library(janitor)
+library(tidyverse)
+library(tidytext)
+
+```
+
+## Rubric
+Create an R markdown document with the following:
+
+--Load the data: https://github.com/wellsdata/CompText_Jour/blob/main/data/blackindex_master.csv
+
+--Using code, describe the number of rows and columns in the dataset
+
+--Create a table that displays a count of the top 15 newspaper_city entries
+
+--Create a table that counts the different entries in the "newspaper_city" column
+
+--Create a table that counts all newspaper_city entries by year
+
+--Create a simple column ggplot chart that shows the total entries by year
+
+Armed with your data analysis, write a 250 word memo at the end of the R markdown document that summarizes your findings. Use this opportunity to ask questions or note any major flaws in the data.
+
+
+```{r}
+# loading the dataset
+rio::import("https://github.com/wellsdata/CompText_Jour/blob/main/data/blackindex_master.csv") 
+
+```
+
+
+
+#
+
+```{r}
+
+
+```
+
+
+```{r}
+
+
+```
+
+
+```{r}
+
+
+```
+
+
+```{r}
+
+
+```
+
+
+```{r}
+
+
+```
+
+
+```{r}
+
+
+```
+
+
+```{r}
+
+
+```
