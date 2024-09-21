@@ -9,11 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+--Load relevant software libraries
 
 ```{r}
 #loading the libraries
@@ -24,71 +20,96 @@ library(tidytext)
 
 ```
 
-## Rubric
-Create an R markdown document with the following:
-
 --Load the data: https://github.com/wellsdata/CompText_Jour/blob/main/data/blackindex_master.csv
+
+```{r}
+# loading the dataset
+blackindex_master <- rio::import("https://github.com/wellsdata/CompText_Jour/raw/main/data/blackindex_master.csv") 
+
+```
 
 --Using code, describe the number of rows and columns in the dataset
 
---Create a table that displays a count of the top 15 newspaper_city entries
+```{r}
+glimpse(blackindex_master)
+```
+
+--Create a table that displays a count of the top 5 newspaper_city entries
+
+```{r}
+
+top_5_newspaper_cities <- blackindex_master %>%
+  select(newspaper_city) %>%
+  group_by(newspaper_city) %>%
+  count() %>%
+  arrange(desc(by=n)) %>%
+  head(5)
+
+```
 
 --Create a table that counts the different entries in the "newspaper_city" column
 
---Create a table that counts all newspaper_city entries by year
+```{r}
+
+newspaper_cities <- blackindex_master %>%
+  select(newspaper_city) %>%
+  group_by(newspaper_city) %>%
+  count() %>%
+  arrange(desc(by=n)) 
+
+```
+
+--Create a table that counts all newspaper_city entries by year. UPDATE: Filter out the NA values
+
+```{r}
+
+year_newspaper_cities <- blackindex_master %>%
+  select(newspaper_city, year) %>%
+  filter(!is.na(newspaper_city)) %>%
+  group_by(newspaper_city, year) %>%
+  count() 
+
+
+```
 
 --Create a simple column ggplot chart that shows the total entries by year
+
+```{r}
+
+entries_by_year <- blackindex_master %>%
+  count(year) %>%
+  ggplot(aes(x = year, y = n)) +
+      geom_col(position = "dodge") + 
+      theme(legend.position = "none") +
+#This is your title sequence
+      labs(title = "Number of newspaper articles mentioning lynching by year",
+          caption = "Graphic by Marilyn Harbert, 09-21-2024",
+          y="Number of Newspaper Articles",
+          x="Year")
+
+plot(entries_by_year)
+
+
+```
 
 Armed with your data analysis, write a 250 word memo at the end of the R markdown document that summarizes your findings. Use this opportunity to ask questions or note any major flaws in the data.
 
 
-```{r}
-# loading the dataset
-rio::import("https://github.com/wellsdata/CompText_Jour/blob/main/data/blackindex_master.csv") 
+I struggle to come to any conclusions at all about the data because I am so removed from the sourcing of the data. The lack of metadata means I have very little context wtithin which to judge the results of our data manipulation and visualization. If I knew from what selection of articles this was drawn, what keywords were used for the search, and what exclusions were made, I might be able to start to draw conclusions. 
 
-```
+Within the data we have, the number of entries rises until it reaches its peak at about 1920, and then fluctuates until dropping off to only a few per year around 1960. 
 
-
-
-#
-
-```{r}
+To draw additional conclusions, questions I might like answered include: 
+- What search terms were used to get these results?
+- What newspapers are included (and thus which are excluded) from this database?
+- What year does this database start at, and what year does it end at?
+- What database are these article drawn from?
 
 
-```
 
 
-```{r}
 
 
-```
 
 
-```{r}
 
-
-```
-
-
-```{r}
-
-
-```
-
-
-```{r}
-
-
-```
-
-
-```{r}
-
-
-```
-
-
-```{r}
-
-
-```
