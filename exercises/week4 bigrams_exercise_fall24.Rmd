@@ -25,10 +25,11 @@ Hand in your completed assignment by uploading to your personal GitHub repositor
 
 ```{r}
 #load tidyverse, tidytext, rio and quanteda libraries
-install.packages("quanteda")
+#install.packages("quanteda")
 library(rio)
 library(tidytext)
 library(quanteda)
+library(tidyverse)
 
 ```
 
