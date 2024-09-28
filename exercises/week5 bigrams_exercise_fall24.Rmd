@@ -1,7 +1,7 @@
 ---
 title: "Bigrams Exercise Sept 24"
-author: "Rob Wells"
-date: '2024-09-20'
+author: "Marilyn Harbert"
+date: '2024-09-24'
 output: html_document
 ---
 
@@ -11,6 +11,10 @@ output: html_document
 ```{r}
 #load tidyverse, tidytext, rio and quanteda libraries
 
+library(quanteda)
+library(tidyverse)
+library(tidytext)
+library(rio)
 ```
 
 ```{r}
@@ -25,6 +29,8 @@ lynch <- read_csv("../data/articles_oct_19.csv")
 
 ```{r}
 
+lynch1900s <- lynch %>%
+  filter(year > 1899 & year < 1911)
 
 ```
 
@@ -32,18 +38,23 @@ lynch <- read_csv("../data/articles_oct_19.csv")
 # Count the number of distinct articles in 1900 dataframe
 ```{r}
 
+n_distinct(lynch1900s$article_id)
+
+
 ```
 
 # Count the number of newspaper_states in the 1900 corpus
 ```{r}
 
-
+n_distinct(lynch1900s$newspaper_state)
 
 ```
 
 # Tokenize the 1900 lynching stories
 
 ```{r}
+lynch_1900s_tokenized <- lynch1900s %>%
+  unnest_tokens(word,sentence)
 
 
 ```
@@ -72,7 +83,7 @@ head(test)
 
 ```{r}
 
-stories_tokenized <- stories_tokenized %>%
+lynch_1900s_tokenized <- lynch_1900s_tokenized %>%
   anti_join(stop_words, by = c("word" = "word")) %>%
   filter(word != "temp_file") %>%
   filter(word != "stories_corpus") %>%
@@ -80,10 +91,10 @@ stories_tokenized <- stories_tokenized %>%
 
 # Word Count
 
-story_word_ct <- stories_tokenized %>%
+lynch_word_ct <- lynch_1900s_tokenized %>%
   count(word, sort=TRUE)
 
-head(story_word_ct)
+head(lynch_word_ct)
 
 
 ```
@@ -92,38 +103,43 @@ head(story_word_ct)
 ## We are now creating two word phrases but before the stop words are taken out
 
 ```{r}
-stories_bigrams <- stories_df %>%
-  unnest_tokens(bigram, stories, token="ngrams", n=2)
+lynch_bigrams <- lynch1900s %>%
+  unnest_tokens(bigram, sentence, token="ngrams", n=2)
 
-stories_bigrams_separated <- stories_bigrams %>%
+lynch_bigrams_separated <- lynch_bigrams %>%
   separate(bigram, c("word1", "word2"), sep = " ")
 ```
 
 # Create a new dataframe with counts of the bigrams
 ```{r}
 
+count_lynch_bigrams <- lynch_bigrams %>%
+  count(bigram, sort=TRUE)
+
 ```
 
 ## Now filter the counts 
 ```{r}
 
-stories_bigrams_filtered <- stories_bigrams_separated %>%
+lynch_bigrams_filtered <- lynch_bigrams_separated %>%
   filter(!word1 %in% stop_words$word) %>%
   filter(!word2 %in% stop_words$word)
 
-stories_bigram_cts2 <- stories_bigrams_filtered %>%
+lynch_bigram_cts2 <- lynch_bigrams_filtered %>%
   count(word1, word2, sort = TRUE) %>% 
   filter(!is.na(word1))
 
-stories_bigram_cts2
+lynch_bigram_cts2
 ```
 
 # Add a "1900" decade column
 
 Hint: use mutate
-
+ 
 ```{r}
 
+lynch_bigrams_filtered <- lynch_bigrams_filtered %>%
+  mutate(decade_1900 = (year >1899 & year <1910))
 
 ```
 
@@ -134,5 +150,42 @@ Create one dataframe with black press articles
 Create a second dataframe without black press articles
 Produce the top 20 bigrams for the black press and non-black press coverage
 Compare and discuss!
+
+ 
+```{r}
+
+lynch_black_press_articles <- lynch_bigrams_filtered %>%
+  filter(black_press == "Y") 
+
+lynch_non_black_press_articles <- lynch_bigrams_filtered %>%
+  filter(is.na(black_press)) 
+
+
+```
+
+Produce the top 20 bigrams for the black press and non-black press coverage
+ 
+```{r}
+
+top_20_bigrams_black_press <- lynch_black_press_articles %>%
+  count(word1, word2, sort = TRUE) %>% 
+  filter(!is.na(word1)) %>%
+  head(20)
+
+top_20_bigrams_nonblack_press <- lynch_non_black_press_articles %>%
+  count(word1, word2, sort = TRUE) %>% 
+  filter(!is.na(word1)) %>%
+  head(20)
+
+top_20_bigrams_black_press
+top_20_bigrams_nonblack_press
+
+```
+
+
+Compare and discuss!
+
+Within this dataset, it seems that there were only 10 articles within the 1900-1910 range, so it is hard to generalize, but for the articles present, in both the cases of black and non-black press articles, some variation of "lynch" was present in the most common bigram. In the black press articles the bigrams such as "officers found" or "july 16" and "county officers" suggests that articles in this data set written by members of the black press may have been more focused on reporting details of lynching cases and stories, whereas the prevelancy of "supreme court" and "mob violence" suggest that maybe white press articles are mroe focused on reporting bigger picture elements of these stories. 
+
 
 
