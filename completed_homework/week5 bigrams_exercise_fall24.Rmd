@@ -185,7 +185,6 @@ top_20_bigrams_nonblack_press
 
 Compare and discuss!
 
-Within this dataset, it seems that there were only 10 articles within the 1900-1910 range, so it is hard to generalize, but for the articles present, in both the cases of black and non-black press articles, some variation of "lynch" was present in the most common bigram. In the black press articles the bigrams such as "officers found" or "july 16" and "county officers" suggests that articles in this data set written by members of the black press may have been more focused on reporting details of lynching cases and stories, whereas the prevelancy of "supreme court" and "mob violence" suggest that maybe white press articles are mroe focused on reporting bigger picture elements of these stories. 
-
+Within this dataset, it seems that there were only 10 articles within the 1900-1910 range, so it is hard to generalize, but for the articles present, in both the cases of black and non-black press articles, some variation of "lynch" was present in the most common bigram. In the black press articles the bigrams such as "officers found" or "july 16" and "county officers" suggests that articles in this data set written by members of the black press may have been more focused on reporting details of lynching cases and stories, whereas the prevelancy of "supreme court" and "mob violence" suggest that maybe white press articles are mroe focused on reporting bigger picture elements of these stories.
 
 
