@@ -13,7 +13,12 @@ https://github.com/wellsdata/CompText_Jour/raw/main/data/black_press_extracted_t
 load the following libraries: tidyverse, textdata, tidytext, quanteda, rio
 
 ```{r}
-
+install.packages("textdata")
+library(tidyverse)
+library(textdata)
+library(tidytext)
+library(quanteda)
+library(rio)
 
 
 ```
@@ -25,7 +30,7 @@ load the following libraries: tidyverse, textdata, tidytext, quanteda, rio
 ```{r}
 #import df created from sequence below
 
-lynch <- read.csv("../data/articles_oct_19.csv")
+lynch <- read.csv("~/Code/CompText_Jour/data/black_press_extracted_text_june_22_2024.csv")
 
 #update to the file path for your code folder
 #black <- read.csv("~/Code/CompText_Jour/data/black_press_extracted_text_june_22_2024.csv")
@@ -56,7 +61,7 @@ text_tokenized<- text_tokenized %>%
 # forcibly removing for now
 
 
-# Word Count
+# Word Countyes
 
 text_word_ct <- text_tokenized %>%
   count(word, sort=TRUE)
@@ -101,9 +106,20 @@ nrc_sentiments %>%
 sentiments_all <- text_tokenized %>%
   inner_join(nrc_sentiments) 
 
+
+dropped <- text_tokenized %>%
+  mutate(token = "text_token") %>%
+  anti_join(nrc_sentiments) %>%
+  filter(token == "text_token")
+
+dropped <- dropped %>%
+  select(word) %>%
+  group_by(word) %>%
+  count()
+
+
+
 #this dictionary assigns different values to the same word. negro is negative, sadness whereas lynch is anger, disgust, fear, negative and sadness.
-
-
 
 x <- sentiments_all %>% 
   group_by(word) %>% 
@@ -139,6 +155,9 @@ afinn_plot <- ggplot(sentiments_all,aes(x = sentiment, y = n,fill = n)) +
        caption = "NRC Sentiment analysis. Graphic by Rob Wells, 8-25-2024",
        y="Score",
        x="total sentiment score")
+
+install.packages("scico")
+library(scico)
 
 afinn_plot + scico::scale_fill_scico(palette = "vik")
 
@@ -346,16 +365,67 @@ lynch_decade <- lynch_decade %>%
 Overall, negative sentiment was 70% of the Southern newspaper coverage but just 69% of the Northern newspaper coverage.
 
 ```{r}
-sentiments_south <- sentiments_south %>% 
+# modify for new lynch decade data set
+all_text <- str_replace_all(lynch$sentence, "- ", "")
+text_df <- tibble(all_text,)
+
+# unnest includes lower, punct removal
+
+text_tokenized <- text_df %>%
+  unnest_tokens(word,all_text)
+
+text_tokenized
+
+#Remove stopwords
+
+data(stop_words)
+
+text_tokenized<- text_tokenized %>%
+  anti_join(stop_words, by = c("word" = "word")) %>%
+  filter(word != "temp_file") %>%
+  #NOT SURE IF THIS LINE SHOULD REMAIN
+  filter(word != "stories_corpus") %>%
+  filter(!grepl('[0-9]', word))
+
+# cite this lexicon
+#install.packages("textdata")
+nrc_sentiments <- get_sentiments("nrc")
+afinn_sentiments <- get_sentiments("afinn")
+
+nrc_sentiments %>% count(sentiment)
+
+#sentiment & count
+# anger	1246			
+# anticipation	837			
+# disgust	1056			
+# fear	1474			
+# joy	687			
+# negative	3318			
+# positive	2308			
+# sadness	1187			
+# surprise	532			
+# trust	1230	
+
+nrc_sentiments %>% 
+  group_by(word) %>% 
+  count() %>% 
+  arrange(desc(n)) %>% 
+  distinct()
+
+sentiments_south <- sentiments_all %>% 
+  filter(region == "South") %>%
   rename(south_n = n, south_pct = pct_total)
 
-sentiments_north <- sentiments_north %>% 
+sentiments_north <- sentiments_all %>% 
+  filter(region == "North") %>%
   rename(north_n = n, north_pct = pct_total)
 
-sentiments_border <- sentiments_border %>% 
+sentiments_border <- sentiments_all %>% 
+  filter(region == "Border") %>%
   rename(border_n = n, border_pct = pct_total)
 
-sentiments_misc <- sentiments_misc %>% 
+sentiments_misc <- sentiments_all %>% 
+  filter(region == "Misc") %>%
   rename(misc_n = n, misc_pct = pct_total)
 
 
