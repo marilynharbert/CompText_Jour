@@ -145,7 +145,8 @@ sentiments_all
 ## Figure 5: Sentiment chart
 ```{r}
 library(ggplot2)
-
+install.packages(ggthemes)
+library(ggthemes)
 
 afinn_plot <- ggplot(sentiments_all,aes(x = sentiment, y = n,fill = n)) +
   geom_col(position = "dodge") + 
@@ -154,7 +155,8 @@ afinn_plot <- ggplot(sentiments_all,aes(x = sentiment, y = n,fill = n)) +
        subtitle = " ",
        caption = "NRC Sentiment analysis. Graphic by Rob Wells, 8-25-2024",
        y="Score",
-       x="total sentiment score")
+       x="total sentiment score") + 
+  theme_stata() + theme(legend.position = "none") 
 
 install.packages("scico")
 library(scico)
@@ -411,6 +413,8 @@ nrc_sentiments %>%
   count() %>% 
   arrange(desc(n)) %>% 
   distinct()
+
+
 
 sentiments_south <- sentiments_all %>% 
   filter(region == "South") %>%
