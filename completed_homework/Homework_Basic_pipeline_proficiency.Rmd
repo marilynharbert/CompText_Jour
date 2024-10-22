@@ -47,19 +47,22 @@ n_distinct(RawChinaData$article_nmbr)
 ```{r}
 #4. Remove useless metadata such as "Los Angeles Times" and "ISSN". See sample code below
 ChinaData_nometa <- RawChinaData %>%
-  mutate(text = str_squish(text)) %>%
+  mutate(text = str_squish(text)) %>% #gets rid of leading and trailing spaces + double spaces
   mutate(text = tolower(text)) %>%
   mutate(text = str_replace(text, "startofarticle", "")) %>%
   mutate(text = gsub("issn:\\s+\\S+", "", text)) %>%
   mutate(text = str_replace_all(text, c(
-    "copyright: (copyright (c) 2005 los angeles times)" = "",
+    "copyright" = "",
     "database: proquest central" = "",
     "language of publication: english" = "",
     "document url:\\s+\\S+" = "",
     "proquest document id:\\s+\\S+" = "",
     "publication subject:\\s+\\S+" = "",
     "publication date:\\s+\\S+" = "",
-    "pages:\\s+\\S+" = ""
+    "pages:\\s+\\S+" = "",
+    "publication info" = "",
+    "last updated:\\s+\\S+" = "",
+    "interest periodicals--united states" = ""
   ))) %>%
   mutate(text = str_replace_all(text, c(
     "search.proquest.com" = "",
