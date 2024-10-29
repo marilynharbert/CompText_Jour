@@ -65,6 +65,8 @@ cat("Files created:", length(documents), "\n")
 
 extracted_lines <- read_lines("../completed_homework/homework_pdf_1.txt")
 
+extracted_lines <- extracted_lines[16:540]
+
 # Print the extracted lines to the console
 cat(extracted_lines, sep = "\n")
 
