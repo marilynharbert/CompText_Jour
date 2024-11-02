@@ -1,10 +1,26 @@
 ---
-title: "Week_10_Scrape_PDF_Compile_DB"
-author: "Rob Wells"
-date: "2024-10-29"
+title: "MH_Revenge_of the_Scrape_PDF"
+author: "Marilyn Harbert"
+date: "2024-11-02"
 output: html_document
 ---
-# Part 1: Scrape a PDF and split into separate text files
+
+# HW STEPS #
+1) Download this PDF: https://github.com/wellsdata/CompText_Jour/blob/main/exercises/assets/pdfs/Asian_Indian_Women_NYT_LAT_USAT.PDF
+
+2) Create a new R Markdown document.
+
+3) Extract the text using the pdftools package
+
+4) Split the text so you have one article per file
+
+5) Construct a dataframe with an index of the articles a unique file name for each article
+
+6) Pull the text articles together into a single dataframe, one row per sentence
+
+7) BONUS NERD ZONE: Link the dataframe with the text to the index
+
+# Load libraries
 
 ```{r}
 #install.packages("pdftools")
@@ -12,30 +28,24 @@ library(tidyverse)
 library(pdftools)
 ```
 
-## Convert PDF to text
+# 3) Extract the text using the pdftools package
 
-Using 10 articles downloaded from NexisUni for Kemi Busari's research
 ```{r}
 #Using pdftools package. Good for basic PDF extraction
-#Oct 17: removed split_file folder in a cleanup
-text <- pdf_text("../exercises/assets/pdfs/kemi.PDF")
+
+text <- pdf_text("../Spooky/Asian_Indian_Women_NYT_LAT_USAT.PDF")
 #pdf_text reads the text from a PDF file.
-writeLines(text, "assets/extracted_text/kemi_text.txt")
+
+writeLines(text, "../Spooky/Asian_Indian_Women_NYT_LAT_USAT.txt")
 #writeLines writes this text to a text file
 ```
 
 
-## Split text to separate articles on common identifier
+# 4) Split the text so you have one article per file
 
-In this case, NexisUni makes life easy for us. At the end of each document, there are the words "End of Document". Convenient! We search for "End of Document" and then instruct R to split the file and dump it into a standalone text file.
 ```{r}
-# Step 1: Read the entire text file into R
-#You will need to alter this for your computer
-#For Mac: In Finder, Cntl + click on the filename, NOW hold down Alt/Option, and an item to copy file path will appear as Copy "Filename" as Pathname 
-#https://stackoverflow.com/questions/52695546/how-to-copy-path-of-a-file-in-mac-os
 
-
-file_path <- "../exercises/assets/extracted_text/kemi_text.txt"
+file_path <- "../Spooky/Asian_Indian_Women_NYT_LAT_USAT.txt"
 text_data <- readLines(file_path)
 
 # Step 2: Combine lines into one single string
@@ -45,21 +55,21 @@ text_combined <- paste(text_data, collapse = "\n")
 documents <- strsplit(text_combined, "End of Document")[[1]]
 
 # Step 4: Write each section to a new file
-output_dir <- "../exercises/assets/extracted_text/"
+output_dir <- "../Spooky/"
 for (i in seq_along(documents)) {
-  output_file <- file.path(output_dir, paste0("kemi_extracted_", i, ".txt"))
+  output_file <- file.path(output_dir, paste0("hw_", i, ".txt"))
   writeLines(documents[[i]], output_file)
 }
 
 cat("Files created:", length(documents), "\n")
 ```
 
-## Create an index from the first extracted page
---We are just grabbing the index of the 10 listed items and creating a dataframe
+#5) Construct a dataframe with an index of the articles a unique file name for each article
+
 ```{r}
-kemi_index <- read_lines("../exercises/assets/extracted_text/kemi_extracted_1.txt")
+hw_index <- read_lines("../Spooky/hw_1.txt")
 # Extract lines 16 to 58
-extracted_lines <- kemi_index[16:58]
+extracted_lines <- hw_index[16:88]
 
 
 # Print the extracted lines to the console
@@ -70,7 +80,7 @@ extracted_lines <- extracted_lines |>
 
 ```
 
-## Build a final dataframe index
+5) Construct a dataframe with an index of the articles a unique file name for each article
 
 ```{r}
 # Step 1: Trim spaces and detect rows with titles and dates
@@ -113,51 +123,30 @@ final_data <- final_data |>
   mutate(index = row_number()) |> 
   select(index, date, title, publication)
 
-write_csv(final_data, "assets/final_data.csv")
+write_csv(final_data, "../Spooky/final_data.csv")
   
 ```
 
-# Part 2: Compile Text into a Dataframe
+6) Pull the text articles together into a single dataframe, one row per sentence
 
-## Raw text compiler 
-```{r include=FALSE}
-#This creates an index with the file path to the stories. And then it compiles the stories into a dataframe
-#####################
-# Begin SM Code #####
-#####################
-
-###
-# List out text files that match pattern .txt, create DF
-###
-
-files <- list.files("../exercises/assets/extracted_text", pattern="*.txt") %>% 
-  as.data.frame() |> 
-  rename(filename = 1) |> 
-  #create an index with the file name
- mutate(index = str_extract(filename, "\\d+")) |> 
-  mutate(index = as.numeric(index))
-
-#the actual path: #~/Code/CompText_Jour/exercises/assets/extracted_text
-
-#Join the file list to the index
-
-#load final data if you haven't already
-#final_data <- read.csv("assets/final_data.csv")
-
-final_index <- final_data |> 
-  inner_join(files, c("index")) |> 
-#you need the actual hard-coded path on this line below to the text
-  
-  # mutate(filepath = paste0("/Users/robwells/Code/CompText_Jour/exercises/assets/extracted_text/", filename))
-  mutate(filepath = paste0("~/Code/CompText_Jour/exercises/assets/extracted_text/", filename))
-head(final_index)
-```
-
-## Text compiler
 ```{r}
-###
-# Define function to loop through each text file 
-###
+# Create empty tibble to store results
+all_text_df <- tibble()
+
+file_path <- "../Spooky/Asian_Indian_Women_NYT_LAT_USAT.txt"
+text_data <- readLines(file_path)
+
+df_text_data <- as.data.frame(text_data)
+
+cleaned_df_text_data <- df_text_data %>%
+  rename(sentences = `text_data`) %>%
+  filter(!sentences == "") 
+
+```
+
+
+7) BONUS NERD ZONE: Link the dataframe with the text to the index
+```{r}
 
 create_article_text <- function(row_value) {
   
@@ -181,27 +170,13 @@ create_article_text <- function(row_value) {
     bind_rows(articles_df_temp)
 }
 
-###
-# Create elements needed to run function
-###
-
 # Create empty tibble to store results
 articles_df <- tibble()
-#running once to test
-#create_article_text(2) 
+
 # Create an array of numbers to loop through, from 1 to the number of rows in our index dataframe 
 row_values <- 1:nrow(final_index)
 
-###
-# Execute function using lapply
-# This loops through each row of the dataframe and append results to master file
-###
-
 lapply(row_values, create_article_text)
-
-###
-# Clean up articles_df and join to index dataframe
-###
 
 articles_df <- articles_df %>%
   select(filename, sentence=value) %>%
@@ -210,10 +185,10 @@ articles_df <- articles_df %>%
 #After viewing articles_df, I see 64 lines from the index that I don't need. Cutting them 
 
 articles_df <- articles_df %>%
-  slice(-c(1:64)) |> 
+  slice(-c(1:88)) |> 
   #gets rid of blank rows
     filter(trimws(sentence) != "") 
 
-#write.csv(articles_df, "../exercises/assets/extracted_text/kemi_df2.csv")
+write.csv(articles_df, "../Spooky/revenge_hw_df.csv")
 
 ```
