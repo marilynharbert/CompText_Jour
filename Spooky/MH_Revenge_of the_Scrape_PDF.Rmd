@@ -130,9 +130,6 @@ write_csv(final_data, "../Spooky/final_data.csv")
 6) Pull the text articles together into a single dataframe, one row per sentence
 
 ```{r}
-# Create empty tibble to store results
-all_text_df <- tibble()
-
 file_path <- "../Spooky/Asian_Indian_Women_NYT_LAT_USAT.txt"
 text_data <- readLines(file_path)
 
@@ -147,6 +144,29 @@ cleaned_df_text_data <- df_text_data %>%
 
 7) BONUS NERD ZONE: Link the dataframe with the text to the index
 ```{r}
+
+files <- list.files("../Spooky/", pattern="hw.*.txt") %>% 
+  as.data.frame() |> 
+  rename(filename = 1) |> 
+  #create an index with the file name
+  mutate(index = str_extract(filename, "\\d+")) |> 
+  mutate(index = as.numeric(index))
+
+#the actual path: #~/Code/CompText_Jour/exercises/assets/extracted_text
+
+#Join the file list to the index
+
+#load final data if you haven't already
+#final_data <- read.csv("assets/final_data.csv")
+
+final_index <- final_data |> 
+  inner_join(files, c("index")) |> 
+#you need the actual hard-coded path on this line below to the text
+  
+  # mutate(filepath = paste0("/Users/robwells/Code/CompText_Jour/exercises/assets/extracted_text/", filename))
+  mutate(filepath = paste0("../Spooky/", filename))
+head(final_index)
+
 
 create_article_text <- function(row_value) {
   

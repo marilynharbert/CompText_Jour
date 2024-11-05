@@ -1,0 +1,89 @@
+---
+title: "MH_basic_text_pipeline_proficiency"
+author: "Marilyn Harbert"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+Steps
+
+1) import a text dataset - use this PDF of 32 articles about journalist and political operative Raymond MoleyLinks to an external site.
+
+2) Load the appropriate software libraries
+
+3) Import the data and compile the articles into a dataframe, one row per sentence.
+
+4) Then tokenize the data, one word per row
+
+5) Clean the data
+
+6) Generate a list of the top 20 bigrams
+
+7) Create a ggplot chart showing the top 20 bigrams
+
+8) At the bottom of the R markdown document, write a 300 word memo describing your key findings.
+
+
+Load libraries
+```{r}
+library(tidyverse)
+library(pdftools)
+```
+
+1) import a text dataset - use this PDF of 32 articles about journalist and political operative Raymond MoleyLinks to an external site.
+
+```{r}
+
+
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
