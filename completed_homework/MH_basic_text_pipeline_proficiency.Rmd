@@ -271,9 +271,9 @@ bi_plot <- ggplot(data=bigram_ct_toplot, aes(fill = n, reorder(bigram, n), reord
   geom_col() +
   labs(y = NULL, 
        x = "Bigram") + 
+  coord_flip() +
   ggtitle("Top 20 Bigrams in Articles about Raymond Moley") + 
-  theme(axis.text.x = element_text(angle=45, vjust=1, hjust=1), 
-        legend.position="none") 
+  theme(legend.position="none") 
 
 plot(bi_plot)
 ```
