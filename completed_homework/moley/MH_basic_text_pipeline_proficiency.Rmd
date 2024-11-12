@@ -7,26 +7,27 @@ output: html_document
 
 Steps
 
-1) import a text dataset - use this PDF of 32 articles about journalist and political operative Raymond MoleyLinks to an external site.
+1)  import a text dataset - use this PDF of 32 articles about journalist and political operative Raymond MoleyLinks to an external site.
 
-2) Load the appropriate software libraries
+2)  Load the appropriate software libraries
 
-3) Import the data and compile the articles into a dataframe, one row per sentence.
-- index
-- linked index 
+3)  Import the data and compile the articles into a dataframe, one row per sentence.
 
-4) Then tokenize the data, one word per row
+-   index
+-   linked index
 
-5) Clean the data
+4)  Then tokenize the data, one word per row
 
-6) Generate a list of the top 20 bigrams
+5)  Clean the data
 
-7) Create a ggplot chart showing the top 20 bigrams
+6)  Generate a list of the top 20 bigrams
 
-8) At the bottom of the R markdown document, write a 300 word memo describing your key findings.
+7)  Create a ggplot chart showing the top 20 bigrams
 
+8)  At the bottom of the R markdown document, write a 300 word memo describing your key findings.
 
-2) Load the appropriate software libraries
+9)  Load the appropriate software libraries
+
 ```{r}
 library(tidyverse)
 library(pdftools)
@@ -35,19 +36,20 @@ library(tidytext)
 library(rio)
 ```
 
-1) import a text dataset - use this PDF of 32 articles about journalist and political operative Raymond MoleyLinks to an external site.
+1)  import a text dataset - use this PDF of 32 articles about journalist and political operative Raymond MoleyLinks to an external site.
 
 ```{r}
-text <- pdf_text("../exercises/assets/pdfs/moley_news.PDF")
+text <- pdf_text("./moley_news.PDF")
 #pdf_text reads the text from a PDF file.
 
-writeLines(text, "../completed_homework/moley_news.txt")
+writeLines(text, "../moley/moley_news.txt")
 #writeLines writes this text to a text file
 ```
 
-3) Import the data and compile the articles into a dataframe, one row per sentence.
+3)  Import the data and compile the articles into a dataframe, one row per sentence.
+
 ```{r}
-file_path <- "../completed_homework/moley_news.txt"
+file_path <- "../moley/moley_news.txt"
 text_data <- readLines(file_path)
 
 # Step 2: Combine lines into one single string
@@ -57,7 +59,7 @@ text_combined <- paste(text_data, collapse = "\n")
 documents <- strsplit(text_combined, "End of Document")[[1]]
 
 # Step 4: Write each section to a new file
-output_dir <- "../completed_homework/"
+output_dir <- "../moley/"
 for (i in seq_along(documents)) {
   output_file <- file.path(output_dir, paste0("moley_", i, ".txt"))
   writeLines(documents[[i]], output_file)
@@ -65,7 +67,7 @@ for (i in seq_along(documents)) {
 
 cat("Files created:", length(documents), "\n")
 
-moley_index <- read_lines("../completed_homework/moley_1.txt")
+moley_index <- read_lines("../moley/moley_1.txt")
 # Extract lines 16 to 58
 extracted_lines <- moley_index[16:175]
 
@@ -76,8 +78,6 @@ cat(extracted_lines, sep = "\n")
 extracted_lines <- extracted_lines |> 
   as.data.frame() 
 ```
-
-
 
 ```{r}
 # Step 1: Trim spaces and detect rows with titles and dates
@@ -119,13 +119,11 @@ final_data <- final_data |>
   mutate(index = row_number()) |> 
   select(index, date, title, publication)
 
-write_csv(final_data, "../completed_homework/moleyindex_data.csv")
+write_csv(final_data, "../moley/moleyindex_data.csv")
 ```
 
-
-
 ```{r}
-files <- list.files("../completed_homework/", pattern="moley.*.txt") %>% 
+files <- list.files("../moley/", pattern="moley.*.txt") %>% 
   as.data.frame() |> 
   rename(filename = 1) |> 
   #create an index with the file name
@@ -134,7 +132,7 @@ files <- list.files("../completed_homework/", pattern="moley.*.txt") %>%
 
 final_index <- final_data |> 
   inner_join(files, c("index")) |> 
-  mutate(filepath = paste0("../completed_homework/", filename))
+  mutate(filepath = paste0("../moley/", filename))
 head(final_index)
 
 
@@ -177,10 +175,10 @@ articles_df <- articles_df %>%
   #gets rid of blank rows
     filter(trimws(sentence) != "") 
 
-write.csv(articles_df, "../completed_homework/moleylinkedindex.csv")
+write.csv(articles_df, "../moley/moleylinkedindex.csv")
 ```
 
-4) Then tokenize the data, one word per row + 5)clean the data
+4)  Then tokenize the data, one word per row + 5)clean the data
 
 ```{r}
 clean_df <- articles_df %>%
@@ -229,7 +227,6 @@ bigrams_separated <- bigrams_separated %>%
   filter(!grepl('[0-9]',word2)) 
 ```
 
-
 ```{r}
 #one word per row
 
@@ -245,7 +242,7 @@ token_clean_df <- token_clean_df %>%
   filter(!grepl('[0-9]',gram)) 
 ```
 
-6) Generate a list of the top 20 bigrams
+6)  Generate a list of the top 20 bigrams
 
 ```{r}
 bigrams_filtered <- bigrams_separated %>%
@@ -259,8 +256,7 @@ bigram_ct <- bigrams_filtered %>%
 top_20_bigrams <- head(bigram_ct, 20)
 ```
 
-7) Create a ggplot chart showing the top 20 bigrams
-
+7)  Create a ggplot chart showing the top 20 bigrams
 
 ```{r}
 # bigram needs to be one column
@@ -278,12 +274,6 @@ bi_plot <- ggplot(data=bigram_ct_toplot, aes(fill = n, reorder(bigram, n), reord
 plot(bi_plot)
 ```
 
-8) At the bottom of the R markdown document, write a 300 word memo describing your key findings.
+8)  At the bottom of the R markdown document, write a 300 word memo describing your key findings.
 
-Not knowing anything else about Robert Moley, it seems he was involved in economic policy given the commonality of bigrams like "economic policy", "economic news" and "gold standard", especially advising the White House, given that "white house" is the most common bigram in the article set. I would guess that he was active in the 1930s or 1940s given the presence of "Franklin Delano" among the most used bigrams, as well as "gold standard" and "keynesian myth" as keynesian economics and the gold standard were prominently debated economic issues during that time period. It seems likely as well that Moley was involved in forming the New Deal as it was the main economic polcicy of President Roosevelt's administration and that "deal policies" was one of the most common bigrams. The commonality of "federal government" in the bigrams could speak to the expansion of the federal government and its role in the New Deal, or just that Moley played a prominent role in the federal government. The least strong finding, which would require more investigation is Moley's relationship with higher education. The bigrams "college university", "brain trust", and "columbia university" suggest a relationship between Moley and education, but it is unclear from the bigrams what that relationship was. This points to one of the weaknesses of bigrams as an analysis method which is that they are devoid of context, and often require a great deal of context to interpret. 
-
-
-
-
-
-
+Not knowing anything else about Robert Moley, it seems he was involved in economic policy given the commonality of bigrams like "economic policy", "economic news" and "gold standard", especially advising the White House, given that "white house" is the most common bigram in the article set. I would guess that he was active in the 1930s or 1940s given the presence of "Franklin Delano" among the most used bigrams, as well as "gold standard" and "keynesian myth" as keynesian economics and the gold standard were prominently debated economic issues during that time period. It seems likely as well that Moley was involved in forming the New Deal as it was the main economic polcicy of President Roosevelt's administration and that "deal policies" was one of the most common bigrams. The commonality of "federal government" in the bigrams could speak to the expansion of the federal government and its role in the New Deal, or just that Moley played a prominent role in the federal government. The least strong finding, which would require more investigation is Moley's relationship with higher education. The bigrams "college university", "brain trust", and "columbia university" suggest a relationship between Moley and education, but it is unclear from the bigrams what that relationship was. This points to one of the weaknesses of bigrams as an analysis method which is that they are devoid of context, and often require a great deal of context to interpret.

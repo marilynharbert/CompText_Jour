@@ -31,7 +31,9 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 #### Dual Axis Format
 
-```{r eval=FALSE, include=TRUE}
+```{r eval=FALSE, include=TRUE} 
+# the above line says don't run the code with the webpage but include it as a demonstration 
+
 income_vacancy %>% 
   ggplot(aes(x = community)) +
   geom_point(aes(y=income_2020), color = "#64D197", stroke=5) +
