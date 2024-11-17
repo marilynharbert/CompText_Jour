@@ -1,0 +1,357 @@
+---
+title: "MH_Summary_HW"
+author: "Marilyn Harbert"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+Note: Need help with index! - I ran out of downloads for today with Proquest, but I can't figure out how to get a download or articles from Proquest with the dates and other metadata in the index, instead of just the titles of the articles. I charted the bigrams instead of the dates since I couldn't figure out how to download those for my index.
+
+##Project Summary##
+
+Queer people experience domestic violence differently and thus require different information about domestic violence than straight people. In addition, domestic violence is often framed as a heterosexual women's issue, leaving queer people out of information provided about domestic violence. 
+
+My data for this project is articles discussing domestic violence from the Chicago based LGBTQ+ newspaper "The Windy City".
+
+For this project I will conduct topic modeling on phrases related to domestic violence to understand narratives and topics associated with domestic violence in past public information available to LGBT people. I will compute basic statistics on the articles, and look at the most common bigrams for articles discussing queer domestic violence. I will also conduct sentiment analysis, and (unless I am very surprised by the results) write a specific queer critique of sentiment analysis. 
+
+#Data#
+
+Initial data downloaded in .txt format from Proquest, only top 20 results downloaded. Search was conducted for "domestic violence" AND "LGBTQ+". The publication list for these results was cross-checked with a list of LGBTQ+ publications from Wikipedia to find the LGBTQ+ publication with the most results for these search terms, which was the Chicago based publication "The Windy City". The sample analyzed below is thus the top 20 results of the search in proquest for "domestic violence" AND "LGBTQ+" from The Windy City.
+
+Link to initial data: 
+
+##Code## Loading libraries
+
+```{r}
+library(tidyverse)
+library(pdftools)
+library(quanteda)
+library(tidytext)
+library(rio)
+```
+
+Extracting data from the .txt file
+
+```{r}
+# Set the path to your .txt file
+file_path <- "../Summary_HW/ProQuestDocuments-2024-11-17.txt"
+
+# Read the .txt file line by line
+text <- readLines(file_path)
+
+# Convert the lines into a dataframe, one line per row
+gay_dv_articles <- data.frame(text)
+
+
+
+```
+
+create linked index
+
+```{r}
+# Step 2: Combine lines into one single string
+text_combined <- paste(text, collapse = "\n")
+
+text_combined <- sub(".*Table of contents", "Table of contents", text_combined)
+
+# Step 3: Split the text by the "End of Document" phrase
+documents <- strsplit(text_combined, "____________________________________________________________")[[1]]
+
+# Step 4: Write each section to a new file
+output_dir <- "../Summary_HW/article_data_dv/"
+for (i in seq_along(documents)) {
+  output_file <- file.path(output_dir, paste0("dv_", i, ".txt"))
+  writeLines(documents[[i]], output_file)
+}
+
+cat("Files created:", length(documents), "\n")
+
+moley_index <- read_lines("../Summary_HW/article_data_dv/dv_1.txt")
+# Extract lines 16 to 58
+extracted_lines <- moley_index[3:46]
+
+# Print the extracted lines to the console
+cat(extracted_lines, sep = "\n")
+
+extracted_lines <- extracted_lines |> 
+  as.data.frame() 
+
+# Step 1: Trim spaces and detect rows with titles and dates
+cleaned_data <- extracted_lines |>
+  mutate(
+    # Trim leading and trailing spaces before detection
+    trimmed_line = str_trim(extracted_lines),  
+
+    # Detect titles (start with a number and a period)
+    is_title = str_detect(trimmed_line, "^\\d+\\. "),  
+
+    # Detect dates (e.g., "Aug 14, 2024")
+    is_date = str_detect(trimmed_line, "\\b\\w{3} \\d{1,2}, \\d{4}\\b")
+  )
+
+# Step 2: Shift dates to align with corresponding titles
+aligned_data <- cleaned_data |>
+  mutate(
+    date = ifelse(lead(is_date, 1), lead(trimmed_line, 1), NA_character_)  # Shift date to title's row
+  ) |>
+  filter(is_title) |>
+  select(trimmed_line, date)  # Keep only the relevant columns
+
+# Step 3: Rename columns for clarity
+final_data <- aligned_data |>
+  rename(
+    title = trimmed_line,
+    date = date
+  )
+
+#Step 4: Date and Publication in separate columns, and formatted
+final_data <- separate(data = final_data, col = date, into = c("date2", "publication"), sep = "  ", extra = "merge", fill = "right")
+
+#Step 5: Format date, clean headline
+final_data <- final_data |> 
+  mutate(date = as.Date(date2,format = "%b %d, %Y")) |> 
+  mutate(title =str_remove(title, "^\\d+\\. ")) |> 
+  subset(select = -(date2)) |> 
+  mutate(index = row_number()) |> 
+  select(index, date, title, publication)
+
+write_csv(final_data, "../Summary_HW/moleyindex_data.csv")
+
+files <- list.files("../Summary_HW/article_data_dv/", pattern="dv.*.txt") %>% 
+  as.data.frame() |> 
+  rename(filename = 1) |> 
+  #create an index with the file name
+  mutate(index = str_extract(filename, "\\d+")) |> 
+  mutate(index = as.numeric(index))
+
+final_index <- final_data |> 
+  inner_join(files, c("index")) |> 
+  mutate(filepath = paste0("../Summary_HW/article_data_dv/", filename))
+head(final_index)
+
+create_article_text <- function(row_value) {
+  
+  #row_value is the single argument that is passed to the function
+  # Take each row of the dataframe
+  temp <- final_index %>%
+    slice(row_value)
+  
+  # Store the filename for  use in constructing articles dataframe
+  temp_filename <- temp$filename
+  
+  # Create a dataframe by reading in lines of a given textfile
+  # Add a filename column 
+  articles_df_temp <- read_lines(temp$filepath) %>%
+    as_tibble() %>%
+    mutate(filename = temp_filename)
+  
+  # Bind results to master articles_df
+  # <<- returns to global environment
+  articles_df <<- articles_df %>%
+    bind_rows(articles_df_temp)
+}
+
+# Create empty tibble to store results
+articles_df <- tibble()
+
+# Create an array of numbers to loop through, from 1 to the number of rows in our index dataframe 
+row_values <- 1:nrow(final_index)
+
+lapply(row_values, create_article_text)
+
+articles_df <- articles_df %>%
+  select(filename, sentence=value) %>%
+  inner_join(final_index)
+
+articles_df <- articles_df %>%
+  slice(-c(3:46)) |> 
+  #gets rid of blank rows
+    filter(trimws(sentence) != "") 
+
+write.csv(articles_df, "../Summary_HW/dvlinkedindex.csv")
+```
+
+get rid of the junk
+
+```{r}
+clean_df <- articles_df %>%
+  mutate(text = str_squish(sentence)) %>% #gets rid of leading and trailing spaces + double spaces
+  mutate(text = tolower(text)) %>%
+  mutate(text = str_replace(text, "startofarticle", "")) %>%
+  mutate(text = str_replace(text, "____________________________________________________________", "")) %>%
+  mutate(text = gsub("issn:\\s+\\S+", "", text)) %>%
+  mutate(text = str_replace_all(text, c(
+    "copyright" = "",
+    "database: proquest central" = "",
+    "language of publication: english" = "",
+    "document url:\\s+\\S+" = "",
+    "proquest document id:\\s+\\S+" = "",
+    "publication subject:\\s+\\S+" = "",
+    "publication date:\\s+\\S+" = "",
+    "publication-type:\\s+\\S+" = "",
+    "pages:\\s+\\S+" = "",
+    "publication info" = "",
+    "last updated:\\s+\\S+" = "",
+    "interest periodicals--united states" = "",
+    "all rights resesrved" = "",
+    "load-date" = "",
+    "all rights reserved" = "", 
+    "new york times" = "",
+    "language: english" = "",
+    "author:\\s+\\S+" = "",
+    "abstract:\\s+\\S+" = "",
+    "Links:\\s+\\S+" = "",
+    "publication title:\\s+\\S+" = "",
+    "volume:\\s+\\S+" = "",
+    "issue:\\s+\\S+" = "",
+    "publication year:\\s+\\S+" = "",
+    "publisher: windy city media group" = "",
+    "place of publication: chicago, ill." = "",
+    "country of publication: united states, chicago, ill." = "",
+    "document type:\\s+\\S+" = "",
+    "database: genderwatch" = "",
+    "identifier / keyword: y; genderwatch" = "",
+    "source type: newspaper" = ""
+  ))) 
+
+```
+
+Tokenize the data
+
+```{r}
+#Tokenize the data
+bitoken_clean_df <- clean_df %>%
+  unnest_tokens(bigram, text, token="ngrams", n=2)
+
+bigrams_separated <- bitoken_clean_df %>%
+  separate(bigram, c("word1", "word2"), sep = " ")
+
+#remove stop words and 
+data(stop_words)
+bigrams_separated <- bigrams_separated %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word) %>%
+  filter(word1  != "https") %>%
+  filter(word2  != "https") %>%
+  filter(!grepl('[0-9]',word1)) %>%
+  filter(!grepl('[0-9]',word2)) 
+```
+
+Descriptive statistics
+
+```{r}
+
+# number of lines
+
+# number of words
+
+# articles by year
+
+baltcity_income %>%
+  group_by(Neighborhood) %>%
+  summarise(count_years = n())
+
+```
+
+Data Sample
+
+```{r}
+head(clean_df)
+
+```
+
+Sample of Data Analysis
+
+Top 20 bigrams
+
+```{r}
+bigrams_filtered <- bigrams_separated %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word)
+
+bigram_ct <- bigrams_filtered %>%
+  count(word1, word2, sort = TRUE) %>% 
+  filter(!is.na(word1))
+
+top_20_bigrams <- head(bigram_ct, 20)
+
+```
+
+Plot Top 20 Bigrams
+
+```{r}
+# bigram needs to be one column
+bigram_ct_toplot <- head(bigram_ct,20) %>%
+  mutate(bigram = paste0(word1, " ", word2))
+
+bi_plot <- ggplot(data=bigram_ct_toplot, aes(fill = n, reorder(bigram, n), reorder(n, bigram))) +
+  geom_col() +
+  labs(y = NULL, 
+       x = "Bigram") + 
+  coord_flip() +
+  ggtitle("Top 20 Bigrams in Articles about Raymond Moley") + 
+  theme(legend.position="none") 
+
+plot(bi_plot)
+```
+
+v
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+v
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
+```{r}
+
+```

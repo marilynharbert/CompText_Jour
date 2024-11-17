@@ -3,15 +3,17 @@
 In this chapter, you will learn additional core data skills that allow you to filter, summarize and append new calculations to datasets. The skills in this chapter, once mastered, will transform your ability to analyze data in ways that are difficult in spreadsheets.
 
 ### R Libraries Background
+
 R is a statistical programming language that is purpose built for data analysis.
 
-There is a basic R program, which geeks call Base R, and it does a lot. We will be bringing in additional software programs known as libraries that do things to make R really operate better and easier.  
+There is a basic R program, which geeks call Base R, and it does a lot. We will be bringing in additional software programs known as libraries that do things to make R really operate better and easier.
 
-The two libraries we are going to need for this assignment are `readr` and `dplyr`. The library `readr` reads different types of data in. For this assignment, we're going to read in csv data or Comma Separated Values data. That's data that has a comma between each column of data. Then we're going to use `dplyr` to analyze it. 
+The two libraries we are going to need for this assignment are `readr` and `dplyr`. The library `readr` reads different types of data in. For this assignment, we're going to read in csv data or Comma Separated Values data. That's data that has a comma between each column of data. Then we're going to use `dplyr` to analyze it.
 
 To use a library, you need to import it. Put all your library steps at the top of your notebooks. Both of these libraries are contained in the [Tidyverse suite of eight essential software packages](https://www.tidyverse.org/packages/). So just load tidyverse and dplyr and readr are ready to go.
 
 #load the tidyverse library
+
 ```{r}
 #install.packages("here")
 
@@ -22,23 +24,23 @@ library(tidyverse)
 
 ## Importing data
 
-The first thing we need to do is get some data to work with. We do that by reading it in. In our case, we're going to read a datatable from an "CSV" file, a stripped down version of a spreadsheet you might open in a program like Google Sheets, in which each column is separated by a comma.  
+The first thing we need to do is get some data to work with. We do that by reading it in. In our case, we're going to read a datatable from an "CSV" file, a stripped down version of a spreadsheet you might open in a program like Google Sheets, in which each column is separated by a comma.
 
 So step 1 is to import the data. The code to import the data looks like this:
 
 `baltcity_income<- read_csv("assets/data/baltcity_income_clean.csv") %>% as.data.frame()`
 
-The first part -- **baltcity_income** -- is the name of a variable. 
+The first part -- **baltcity_income** -- is the name of a variable.
 
-A **variable** is just a name that we'll use to refer to some more complex thing. In this case, the more complex thing is the data we're importing into R that will be stored as a **dataframe**, which is one way R stores data. 
+A **variable** is just a name that we'll use to refer to some more complex thing. In this case, the more complex thing is the data we're importing into R that will be stored as a **dataframe**, which is one way R stores data.
 
-The `<-` is the **variable assignment operator**. 
+The `<-` is the **variable assignment operator**.
 
 **read_csv()** is a function, one that only works when we've loaded the tidyverse. read_csv() is from the readr package, which is part of the tidyverse.
 
-Inside of the **read_csv()** function, we've put the name of the file we want to load.  Things we put inside of function, to customize what the function does, are called **arguments**. And lastly, we added a **pipe operator %>%** (shift + cntl + M) that adds another command to turn the imported data into a data frame with **as.data.frame()**.  The pipe operator - `%>%` - basically tells R to "and then do this."
+Inside of the **read_csv()** function, we've put the name of the file we want to load. Things we put inside of function, to customize what the function does, are called **arguments**. And lastly, we added a **pipe operator %\>%** (shift + cntl + M) that adds another command to turn the imported data into a data frame with **as.data.frame()**. The pipe operator - `%>%` - basically tells R to "and then do this."
 
-Here is the entire command in a code chunk. Run it by clicking the green arrow to the right below. 
+Here is the entire command in a code chunk. Run it by clicking the green arrow to the right below.
 
 ```{r}
 #Set working directory to .../CompText_Jour/exercises
@@ -51,25 +53,26 @@ baltcity_income <- read.csv(here("exercises", "assets/data/baltcity_income_clean
 
 In this data set, each row represents a Census district, and each column represents a feature of that district: its location, the median household income in 2010, 2016, 2020, the neighborhood identifier and geographic coordinators.
 
-After loading the data, it's a good idea to get a sense of its shape.  What does it look like? There are several ways we can examine it. 
+After loading the data, it's a good idea to get a sense of its shape. What does it look like? There are several ways we can examine it.
 
-By looking in the R Studio environment window, we can see the number of rows (called "obs.", which is short for observations), and the number of columns (called variables).  We can double click on the dataframe name in the environment window, and explore it like a spreadsheet.  
+By looking in the R Studio environment window, we can see the number of rows (called "obs.", which is short for observations), and the number of columns (called variables). We can double click on the dataframe name in the environment window, and explore it like a spreadsheet.
 
-There are several useful functions for getting a sense of the dataset right in our markdown document. 
+There are several useful functions for getting a sense of the dataset right in our markdown document.
 
-If we run `glimpse(baltcity_income)`, it will give us a list of the columns, the data type for each column and and the first few values for each column.  
+If we run `glimpse(baltcity_income)`, it will give us a list of the columns, the data type for each column and and the first few values for each column.
 
 ```{r}
 glimpse(baltcity_income)
 ```
 
-If we type `head(baltcity_income)`, it will print out the columns and the first six rows of data. 
+If we type `head(baltcity_income)`, it will print out the columns and the first six rows of data.
 
 ```{r}
 head(baltcity_income)
 
 ```
-We can also click on the data name in the R Studio environment window to explore it interactively. 
+
+We can also click on the data name in the R Studio environment window to explore it interactively.
 
 ### Group by and count
 
@@ -77,7 +80,7 @@ There is some overlap among the Census tracts, which typically are groups of bet
 
 `dplyr` has a group by function that compiles things together and then produces simple summaries by counting things, or averaging them together. It's a good place to start.
 
-The first step of every analysis starts with the data being used. Then we apply functions to the data. 
+The first step of every analysis starts with the data being used. Then we apply functions to the data.
 
 In our case, the pattern that you'll use many, many times is: `data %>% group_by(COLUMN NAME) %>% summarize(VARIABLE NAME = AGGREGATE FUNCTION(COLUMN NAME))`
 
@@ -93,17 +96,17 @@ baltcity_income %>%
   )
 ```
 
-So let's walk through that. 
+So let's walk through that.
 
-We start with our dataset -- `baltcity_incomes` -- and then we tell it to group the data by a given field in the data. In this case, we wanted to group together all the counties, signified by the field name `Neighborhood`, which you could get from using the glimpse() function. After we group the data, we need to count them up. 
+We start with our dataset -- `baltcity_incomes` -- and then we tell it to group the data by a given field in the data. In this case, we wanted to group together all the counties, signified by the field name `Neighborhood`, which you could get from using the glimpse() function. After we group the data, we need to count them up.
 
-In dplyr, we use the `summarize()` function, [which can do alot more than just count things](http://dplyr.tidyverse.org/reference/summarise.html). 
+In dplyr, we use the `summarize()` function, [which can do alot more than just count things](http://dplyr.tidyverse.org/reference/summarise.html).
 
-Inside the parentheses in summarize, we set up the summaries we want. In this case, we just want a count of the number of loans for each county grouping. The line of code `count_tracts = n(),` says create a new field, called `count_tracts` and set it equal to `n()`. `n()` is a function that counts the number of rows or records in each group.  Why the letter n? The letter n is a common symbol used to denote a count of something. 
+Inside the parentheses in summarize, we set up the summaries we want. In this case, we just want a count of the number of loans for each county grouping. The line of code `count_tracts = n(),` says create a new field, called `count_tracts` and set it equal to `n()`. `n()` is a function that counts the number of rows or records in each group. Why the letter n? The letter n is a common symbol used to denote a count of something.
 
-When we run that, we get a list of counties with a count next to them. But it's not in any order. 
+When we run that, we get a list of counties with a count next to them. But it's not in any order.
 
-So we'll add another "and then do this" symbol -- %>% -- and use a new function called `arrange()`. Arrange does what you think it does -- it arranges data in order. By default, it's in ascending order -- smallest to largest. But if we want to know the county with the most loans, we need to sort it in descending order. That looks like this:
+So we'll add another "and then do this" symbol -- %\>% -- and use a new function called `arrange()`. Arrange does what you think it does -- it arranges data in order. By default, it's in ascending order -- smallest to largest. But if we want to know the county with the most loans, we need to sort it in descending order. That looks like this:
 
 ```{r}
 baltcity_income %>%
@@ -113,9 +116,10 @@ baltcity_income %>%
   ) %>% 
   arrange(desc(count_tracts))
 ```
+
 The Census data contains a column detailing the neighborhood. It has associated the Census tracts to neighborhood names. This dataset may have several neighborhood values since Census tracts are a smaller unit of measurement.
 
-Southwest Baltimore neighborhood is spread out over 8 census tracts, more than any other neighborhood. 
+Southwest Baltimore neighborhood is spread out over 8 census tracts, more than any other neighborhood.
 
 Here's the code to determine the count the number of census tracts in each neighborhood:
 
@@ -126,11 +130,9 @@ baltcity_income %>%
   )
 ```
 
-
 ## Interviewing Your Data: Min, Max, Mean, Medians
 
-What is the typical median income? What about the highest and lowest median incomes in the city?  For that, we can use the `min()` and `max()` functions. 
-
+What is the typical median income? What about the highest and lowest median incomes in the city? For that, we can use the `min()` and `max()` functions.
 
 ```{r}
 baltcity_income %>%
@@ -142,9 +144,11 @@ baltcity_income %>%
     max_2020 = max(x2020, na.rm=TRUE)
   ) 
 ```
+
 Here we see the typical median household income is `$49,875` by census tract for Baltimore City in 2020 (see result for x2020 median). The lowest median income was `$13,559` and the highest was `$199,531`. From another Census analysis, we know hat citywide, the median household income was `$52,164` for 2016-2020. The **`na.rm=TRUE`** argument lets R knock out any empty rows from the calculation.
 
 Use summary to determine the distribution the x2020 column in the baltcity_income dataframe
+
 ```{r}
 summary(baltcity_income$x2020)
 
@@ -154,8 +158,7 @@ This tells us the minimum, maximum, median, average (mean), and the first and th
 
 ### Filters: Extracting Needles from Haystacks
 
-Where are these rich and poor places?
-Let's filter for the lowest value, $13,559, and find out where it is
+Where are these rich and poor places? Let's filter for the lowest value, \$13,559, and find out where it is
 
 ```{r}
 baltcity_income %>%
@@ -167,7 +170,7 @@ It is part of the Upton/Druid Heights neighborhood in West Baltimore.
 
 **YOUR TURN**
 
-Provide a list of all neighborhoods at or above $100,000 median income income in 2020
+Provide a list of all neighborhoods at or above \$100,000 median income income in 2020
 
 ```{r}
 
@@ -178,9 +181,8 @@ a100k_baltcity_income <- baltcity_income %>%
 
 ```
 
+We can stack filters using the Or connector: `|` It's above the enter key on a Mac keyboard
 
-We can stack filters using the Or connector: `|`
-It's above the enter key on a Mac keyboard
 ```{r}
 baltcity_income %>%
   select(Neighborhood, x2020) %>% 
@@ -204,10 +206,10 @@ write.csv(mydata, "mydata.csv")
 
 ```
 
-
 Read this for [more details about logical operators](https://www.statmethods.net/management/operators.html).
 
-Let's filter for the wealthy neighborhoods, all above $100,000 
+Let's filter for the wealthy neighborhoods, all above \$100,000
+
 ```{r}
 baltcity_income %>%
   select(Neighborhood, x2020) %>% 
@@ -226,11 +228,12 @@ baltcity_income %>%
     x2020_avg = mean(x2020, na.rm=TRUE)) 
 ```
 
-In the example above, we created a new summary value called x2020_avg that holds the result of the math, the average of the entire x2020 column of median incomes. 
+In the example above, we created a new summary value called x2020_avg that holds the result of the math, the average of the entire x2020 column of median incomes.
 
 ### Other summarization methods: mean, median, min and max
 
 Here's another trick, pulling out the minimum and maximum values
+
 ```{r}
 baltcity_income %>%
   select(Neighborhood, x2020, Census) %>% 
@@ -259,11 +262,9 @@ Use the right diamond at `x2016_median` to see columns 5-7.
 
 ![](assets/r_aggregates_navigating.gif){width="100%"}
 
-
 ### Using sum
 
-There's much more we can to summarize each group.
-Let's pull in another dataset and summarize by group.
+There's much more we can to summarize each group. Let's pull in another dataset and summarize by group.
 
 ```{r}
 #loading 2020 and 2010 Baltimore City population by race
@@ -272,7 +273,6 @@ baltcity_race <- read_csv("assets/data/baltcity_race_8_13.csv") %>%
 ```
 
 Let's say we wanted to know the total population by white people in Baltimore? For that, we could use the `sum()` function to add up all of the population in the column "x2020_white". We put the column we want to total -- "amount" -- inside the sum() function `sum(amount)`. Note that we can simply add a new summarize function here, keeping our count_loans field in our output table.
-
 
 This abbreviated slice of Census data contains columns detailing the population by race in Census tracts. There is the x2020_total which provides the full population, then x2020_white, x2020_black, x2020_hispanic. We omitted Asians and Pacific islanders and people identifying with more than one race for simplicity in this example.
 
@@ -289,8 +289,7 @@ baltcity_race %>%
 
 ```
 
-
-**YOUR TURN **
+**YOUR TURN**
 
 summarize the asian, hispanic and pacific islander
 
@@ -306,13 +305,11 @@ baltcity_race %>%
 
 ```
 
-
 ### Mutate
 
 One powerful function in `dplyr` is the `mutate` command, which allows us to add together columns, create new columns with averages, percentages, or other calculations. We'll get into this more next week, but understand that `mutate` is an important go-to command to transform existing data into something new. It's very powerful and you will use it a lot.
 
 Here's a brief example using the baltcity_race table. We want to construct a ratio of the black population to the white population by Census tract. With mutate, we create a new column called ratio_w_b and then insert the math: the 2020 black population by census tract divided into the 2020 white population. And then we sort in descending order, highest to lowest
-
 
 ```{r}
 
@@ -324,15 +321,9 @@ race1 <- baltcity_race %>%
 head(race1)
 ```
 
-
 Look at the new table above: we have a new column -- ratio_w_b -- that shows the Black to white population ratio. In the next chapter, we will use mutate to kick up your data skils a notch.
 
-
-**Question: **
-We know the median income for Baltimore City (I just told you a few paragraphs ago).
-Construct a filter for all census tracts below the citywide average household income for 2020.
-Count them. 
-What percentage of the city's census tracts are below the average? Put that in code too.
+**Question:** We know the median income for Baltimore City (I just told you a few paragraphs ago). Construct a filter for all census tracts below the citywide average household income for 2020. Count them. What percentage of the city's census tracts are below the average? Put that in code too.
 
 ```{r}
 
@@ -352,6 +343,3 @@ perc_below_avg_ <- below_avg$n/nrow(baltcity_income)
 
 
 ```
-
-
-
