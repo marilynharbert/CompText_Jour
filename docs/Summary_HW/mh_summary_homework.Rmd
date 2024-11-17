@@ -19,7 +19,7 @@ For this project I will conduct topic modeling on phrases related to domestic vi
 
 Initial data downloaded in .txt format from Proquest, only top 20 results downloaded. Search was conducted for "domestic violence" AND "LGBTQ+". The publication list for these results was cross-checked with a list of LGBTQ+ publications from Wikipedia to find the LGBTQ+ publication with the most results for these search terms, which was the Chicago based publication "The Windy City". The sample analyzed below is thus the top 20 results of the search in proquest for "domestic violence" AND "LGBTQ+" from The Windy City.
 
-Link to initial data: 
+Link to initial data: https://github.com/marilynharbert/CompText_Jour/blob/main/docs/Summary_HW/ProQuestDocuments-2024-11-17.txt
 
 ##Code## Loading libraries
 
@@ -116,7 +116,7 @@ final_data <- final_data |>
   mutate(index = row_number()) |> 
   select(index, date, title, publication)
 
-write_csv(final_data, "../Summary_HW/moleyindex_data.csv")
+write_csv(final_data, "../Summary_HW/dv_index_data.csv")
 
 files <- list.files("../Summary_HW/article_data_dv/", pattern="dv.*.txt") %>% 
   as.data.frame() |> 
@@ -181,6 +181,7 @@ clean_df <- articles_df %>%
   mutate(text = str_replace(text, "startofarticle", "")) %>%
   mutate(text = str_replace(text, "____________________________________________________________", "")) %>%
   mutate(text = gsub("issn:\\s+\\S+", "", text)) %>%
+  mutate(text = gsub("http[^ ]*", "http", text)) %>%
   mutate(text = str_replace_all(text, c(
     "copyright" = "",
     "database: proquest central" = "",
@@ -201,7 +202,7 @@ clean_df <- articles_df %>%
     "language: english" = "",
     "author:\\s+\\S+" = "",
     "abstract:\\s+\\S+" = "",
-    "Links:\\s+\\S+" = "",
+    "links:\\s+\\S+" = "",
     "publication title:\\s+\\S+" = "",
     "volume:\\s+\\S+" = "",
     "issue:\\s+\\S+" = "",
@@ -212,7 +213,15 @@ clean_df <- articles_df %>%
     "document type:\\s+\\S+" = "",
     "database: genderwatch" = "",
     "identifier / keyword: y; genderwatch" = "",
-    "source type: newspaper" = ""
+    "source type: newspaper" = "",
+    "windy city times" = "",
+    "umcp.primo.exlibrisgroup.com\\s+\\S+" = "",
+    "usmai-umcp.primo.exlibrisgroup.com" = "",
+    "id	doi" = "",
+    "Links: https://usmai-umcp.primo.exlibrisgroup.com/" = "",
+    "windy city media group" = "",
+    "city times; chicago, ill." = "",
+    "http" = ""
   ))) 
 
 ```
@@ -241,23 +250,27 @@ bigrams_separated <- bigrams_separated %>%
 Descriptive statistics
 
 ```{r}
-
 # number of lines
+count_lines <- clean_df %>%
+  summarise(count_lines = n())
 
-# number of words
+# number of lines per article
+count_lines_index <- clean_df %>%
+  group_by(index) %>%
+  summarise(count_lines = n())
 
-# articles by year
-
-baltcity_income %>%
-  group_by(Neighborhood) %>%
-  summarise(count_years = n())
+# number of words per article
+count_df <- clean_df %>%
+  group_by(index) %>%
+  summarise(count_words = str_count(text, '\\S+')) %>%
+  summarise(count_lines = sum(count_words))
 
 ```
 
 Data Sample
 
 ```{r}
-head(clean_df)
+head(clean_df, 30)
 
 ```
 
@@ -275,6 +288,7 @@ bigram_ct <- bigrams_filtered %>%
   filter(!is.na(word1))
 
 top_20_bigrams <- head(bigram_ct, 20)
+top_20_bigrams
 
 ```
 
@@ -290,68 +304,8 @@ bi_plot <- ggplot(data=bigram_ct_toplot, aes(fill = n, reorder(bigram, n), reord
   labs(y = NULL, 
        x = "Bigram") + 
   coord_flip() +
-  ggtitle("Top 20 Bigrams in Articles about Raymond Moley") + 
+  ggtitle("Top 20 Bigrams in Articles about Domestic Violence published in the Windy City") + 
   theme(legend.position="none") 
 
 plot(bi_plot)
-```
-
-v
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-v
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
-```
-
-```{r}
-
 ```
