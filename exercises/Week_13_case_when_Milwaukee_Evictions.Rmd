@@ -6,14 +6,15 @@ output: html_document
 ---
 
 # Analyzing Eviction Court Data From Milwaukee
+
 ### Data analysis by Rob Wells
 
+-   **The records were scraped from this website**\
+    <https://wcca.wicourts.gov/advanced.html>
 
-- **The records were scraped from this website**  
-https://wcca.wicourts.gov/advanced.html 
+------------------------------------------------------------------------
 
---------------------------------------------------------------------
-- **Part 1: Load Libraries and Data**
+-   **Part 1: Load Libraries and Data**
 
 ```{r include=FALSE}
 library(tidyverse)
@@ -21,12 +22,15 @@ library(janitor)
 library(lubridate)
 library(kableExtra)
 ```
+
 Load Milwaukee City and County Data for Evictions
+
 ```{r}
 milw <- rio::import("../data/sta_wi_milwaukee_2019_2020.csv") 
 ```
 
-- **Clean names**
+-   **Clean names**
+
 ```{r}
 milw <- janitor::clean_names(milw)
 ```
@@ -35,14 +39,14 @@ milw <- janitor::clean_names(milw)
 glimpse(milw)
 ```
 
-- **Parse Cities **
+-   **Parse Cities**
+
 ```{r}
 milw <- milw |> 
-  mutate(defendant_address2 = defendant_address) |> # makes a copy of a column you will now pick apart
+  mutate(defendant_address2 = defendant_address) |> 
   separate(defendant_address, into = c("address", "city", "state_zip"), sep = ", ", extra = "merge", fill = "right")
 
 ```
-
 
 ```{r}
 milw %>% 
@@ -51,7 +55,8 @@ milw %>%
   arrange(desc(n))
 ```
 
-- **Process dates** 
+-   **Process dates**
+
 ```{r}
 milw <- milw |> 
   mutate(date = ymd(file_date)) |> 
@@ -63,7 +68,9 @@ distinct()
 ```
 
 ### Total Eviction Filings by Month in Milwaukee City and County, Jan. 1 2019-July 31, 2020
+
 **Wisconsin eviction moratorium was March 27 - May 27, 2020**
+
 ```{r}
 z <- milw %>% 
   group_by(yearmon) %>%
@@ -71,14 +78,16 @@ z <- milw %>%
 z
 ```
 
-- **Context: Total eviction filings in Wisconsin City and County since Jan. 1, 2019: 19,420**
+-   **Context: Total eviction filings in Wisconsin City and County since Jan. 1, 2019: 19,420**
+
 ```{r}
 summary(z$n)
 sum(z$n)
 ```
 
-- **Chart of Milwaukee City and County Eviction Filings, Jan 1. 2019-July 31, 2020**  
-**Wisconsin eviction moratorium was March 27 - May 27, 2020**
+-   **Chart of Milwaukee City and County Eviction Filings, Jan 1. 2019-July 31, 2020**\
+    **Wisconsin eviction moratorium was March 27 - May 27, 2020**
+
 ```{r}
 
 ggplot(z, aes(x=yearmon, y=n, fill=yearmon)) +
@@ -90,7 +99,7 @@ ggplot(z, aes(x=yearmon, y=n, fill=yearmon)) +
 #ggsave("Milw_Evict_8_21_2020.png",device = "png",width=9,height=6, dpi=500)
 ```
 
-- **Clean the columns - remove stray spaces, numerals**
+-   **Clean the columns - remove stray spaces, numerals**
 
 ```{r}
 milw <- milw |> 
@@ -103,8 +112,8 @@ milw <- milw |>
   )
 ```
 
+-   **Summary of Milwaukee Plaintiffs**
 
-- **Summary of Milwaukee Plaintiffs **
 ```{r}
 #Build a simple summary table
 plaintiff1 <- milw %>% 
@@ -119,7 +128,9 @@ plaintiff1 <- milw %>%
 
 plaintiff1
 ```
+
 ##Cleaning of Plaintiffs Names, Normalizing and Grouping
+
 ```{r}
 milw <- milw %>% 
   mutate(plaintiff_fixed = case_when(plaintiff_one=="meaux park llc" ~ "berrada",
@@ -131,6 +142,7 @@ milw <- milw %>%
 ```
 
 Tally
+
 ```{r}
 milw |> 
   count(plaintiff_fixed) |> 
@@ -139,36 +151,19 @@ milw |>
 
 ```
 
-
-
 # Your turn
-Categorize the following as "berrada" properties
-"luther haven llc" 
-"willow court apartments llc" 
-"garden terrace homes llc" 
-"good hope townhomes ii llc" 
-"good hope townhomes llc" 
-"colonial pointe ii apartments llc" 
-"colonial pointe il apartments llc" 
-"colonial pointe i apartments llc" 
 
-Categorize the following as  "anchor_properties"
-"atlantis properties llc" 
-"anchor properties llc" 
- "action properties llc" 
-"afc properties llc" 
-"atunna properties llc" 
-"affordable properties llc" 
-"acme properties  llc" 
+Categorize the following as "berrada" properties "luther haven llc" "willow court apartments llc" "garden terrace homes llc" "good hope townhomes ii llc" "good hope townhomes llc" "colonial pointe ii apartments llc" "colonial pointe il apartments llc" "colonial pointe i apartments llc"
 
+Categorize the following as "anchor_properties" "atlantis properties llc" "anchor properties llc" "action properties llc" "afc properties llc" "atunna properties llc" "affordable properties llc" "acme properties llc"
 
 ```{r}
 #Save as a csv
 #write.csv(p2, "milw_landlord_cleaned_8_6_2020.csv")
 ```
 
+-   **Context: Berrada was responsible for 17% of eviction filings in Milwaukee City and County since March 27, 2020.** Since the moratorium started in March 27, 2020, there have been 2,929 evictions. Berrada and its 18 affiliated entities had 484 eviction filings, or 17% of the total. Anchor and its affiliates were responsible for 4% of eviction filings.
 
-- **Context: Berrada was responsible for 17% of eviction filings in Milwaukee City and County since March 27, 2020.** Since the moratorium started in March 27, 2020, there have been 2,929 evictions. Berrada and its 18 affiliated entities had 484 eviction filings, or 17% of the total. Anchor and its affiliates were responsible for 4% of eviction filings.
 ```{r}
 #Cleaned Milwaukee Plaintiffs since March 27 2020
 top2 <- p2 %>% 
@@ -182,8 +177,8 @@ top2 <- p2 %>%
 top2
 ```
 
+-   **Top with top 50 Results of Milwaukee Landlords**
 
-- **Top with top 50 Results of Milwaukee Landlords**
 ```{r}
 top2 %>% 
   top_n(50, n) %>% 
@@ -192,15 +187,12 @@ top2 %>%
 
 ```
 
-
-
-
 **--30--**
 
 Don't Peek!
 
+-   **Rename and Group Landlords, Substitute top names and normalize**
 
-- **Rename and Group Landlords, Substitute top names and normalize**
 ```{r}
 p2 <- p2 %>% 
   mutate(plaintiff_fixed = case_when(plaintiff_one=="meaux park llc" ~ "berrada",
