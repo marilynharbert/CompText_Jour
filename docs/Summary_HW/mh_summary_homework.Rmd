@@ -302,7 +302,9 @@ clean_df <- articles_df %>%
     "location:\\s+\\S+" = "",
     "illinois; united states--us; illinois" = "",
     "business indexing term:" = "",
-    "ch icago, ill." = ""
+    "ch icago, ill." = "",
+    "title" = "", 
+    "website:\\s+\\S+" = ""
   ))) 
 
 # only 258 index
@@ -710,9 +712,9 @@ critic$story_id <- gsub("X", "", critic$story_id)
 
 ```{r}
 # plot topic proportions per decade as bar plot
-ggplot(vizDataFrame, aes(x=decade, y=value, fill=category)) + 
+ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) + 
   geom_bar(stat = "identity") + ylab("proportion") + 
-  scale_fill_manual(values = paste0(alphabet(20), "FF"), name = "decade") + 
+  scale_fill_manual(values = paste0(alphabet(20), "FF"), name = "year") + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
    scale_fill_manual(values=c("#9933FF",
                               "#33FFFF",
