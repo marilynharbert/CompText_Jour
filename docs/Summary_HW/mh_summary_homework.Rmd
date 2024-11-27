@@ -87,10 +87,13 @@ Extracting data from the .txt file
 
 ```{r}
 # Set the path to your .txt file
-file_path <- "../Summary_HW/ProQuestDocuments-2024-11-27.txt"
+file_path <- "../Summary_HW/ProQuestDocuments-2024-11-27 (1).txt"
 
 # Read the .txt file line by line
 text <- readLines(file_path)
+
+text <- text[-c(1:4)]
+
 
 # Convert the lines into a dataframe, one line per row
 gay_dv_articles <- data.frame(text)
@@ -98,7 +101,7 @@ gay_dv_articles <- data.frame(text)
 
 Extract metadata from excel file
 ```{r}
-metadata <- read_excel("~/Code/CompText_Jour/docs/Summary_HW/ProQuestDocuments-2024-11-27.xls")
+metadata <- read_excel("~/Code/CompText_Jour/docs/Summary_HW/ProQuestDocuments-2024-11-27 (1).xls")
 
 # create indices
 metadata_dv_windy_city <- metadata %>%
@@ -131,9 +134,9 @@ cat("Files created:", length(documents), "\n")
 
 # says it created 213 files
 
-dv_index <- read_lines("../Summary_HW/article_data_dv/dv_2.txt")
+dv_index <- read_lines("../Summary_HW/article_data_dv/dv_1.txt")
 # Extract lines 5 to 215
-extracted_lines <- dv_index[6:528]
+extracted_lines <- dv_index[3:541]
 
 # Print the extracted lines to the console
 cat(extracted_lines, sep = "\n")
@@ -235,7 +238,7 @@ articles_df <- articles_df %>%
   inner_join(final_index)
 
 articles_df <- articles_df %>%
-  slice(-c(2:530)) |> 
+  slice(-c(2:533)) |> 
   #gets rid of blank rows
     filter(trimws(sentence) != "") 
 
@@ -304,7 +307,7 @@ clean_df <- articles_df %>%
     "business indexing term:" = "",
     "ch icago, ill." = "",
     "title" = "", 
-    "website:\\s+\\S+" = ""
+    "web site:\\s+\\S+" = ""
   ))) 
 
 # only 258 index
@@ -474,7 +477,7 @@ articles_years <- textdata %>%
 
 library(kableExtra)
 articles_years %>%
-  kbl(caption = "DV Windy City Times Articles by Year (n=261, 11/27/2024)", font_size = 30) %>%
+  kbl(caption = "DV Windy City Times Articles by Year (n=270, 11/27/2024)", font_size = 30) %>%
   kable_classic(full_width = F, html_font = "Cambria") %>% 
   column_spec(1, bold = T, border_right = T) %>%
   column_spec(2, width = "5em") %>% 
@@ -489,7 +492,7 @@ articles_years %>%
 ```{r tm12}
 # number of topics
 # K <- 20
-K <- 10
+K <- 6
 # set random number generator seed
 set.seed(9161)
 #Latent Dirichlet Allocation, LDA
@@ -497,7 +500,7 @@ topicModel2 <- LDA(DTM, K, method="Gibbs", control=list(iter = 500, verbose = 25
 tmResult <- posterior(topicModel2)
 theta <- tmResult$topics
 beta <- tmResult$terms
-topicNames <- apply(terms(topicModel2, 10), 2, paste, collapse = " ")  # reset topicnames
+topicNames <- apply(terms(topicModel2, 10), 2, paste, collapse = " ")  # reset topicNames
 ```
 
 ### Mean topic proportions per yaer
@@ -587,53 +590,50 @@ topic1 <- theta2 %>%
 
 
 ```{r}
-
 #add categories
 
 vizDataFrame <- vizDataFrame %>% 
   mutate(category = case_when(
-    str_detect(variable,  "counti citi night mile jail day town morn march juli") ~ "lynchings",
-    str_detect(variable, "law crime peopl lynch great excit state good citizen countri") ~ "critizing_lynching",
-    str_detect(variable, "lynch mob negro jail men hang night crowd prison attempt") ~ "negro_lynching",
-    str_detect(variable, "negro murder white lynch man kill year assault charg mrs") ~ "female_victim",
-     str_detect(variable, "sheriff state court juri governor order offic prison judg deputi") ~ "legal",
-    str_detect(variable, "bodi fire shot hang hous tree found street rope door") ~ "lynch_mob",
+    str_detect(variable,  "chicago work communiti organ lgbt center servic health univers youth") ~ "community_org",
+    str_detect(variable, "chicago show perform music gay theatr center event featur halst") ~ "theater",
+    str_detect(variable, "state illinoi counti gay unit race marriag cook elect district") ~ "elect",
+    str_detect(variable, "violenc peopl women domest communiti sexual black queer abus report") ~ "domestic_abuse",
+     str_detect(variable, "number law polic offic case peopl year report hiv charg") ~ "legal",
+    str_detect(variable, "peopl time year work famili life make love wct thing") ~ "life",
     ))
-
-
 ```
 
 # Fact Check and Validate Topics
 
-Topic 1	illinoi state counti race cook unit district judg elect skinni			
-Topic 2	chicago event halst center women titl photograph feb ticket day			
-Topic 3	show perform music chicago theatr theater art play film artist			
-Topic 4	polic law offic case peopl hiv charg crimin sex person			
-Topic 5	time peopl famili life year love friend wct work thing			
-Topic 6	chicago communiti gay aid year lgbt director organ citi board			
-Topic 7	violenc domest peopl women abus report sexual communiti percent victim			
-Topic 8	marriag lgbt gay equal state immigr right sex law issu			
-Topic 9	work chicago communiti youth univers organ health school center program			
-Topic 10	peopl work women black communiti queer movement organ live make
+1 - chicago work communiti organ lgbt center servic health univers youth
+2- chicago show perform music gay theatr center event featur halst
+3 - state illinoi counti gay unit race marriag cook elect district
+4 - violenc peopl women domest communiti sexual black queer abus report
+5 - number law polic offic case peopl year report hiv charg
+6 - peopl time year work famili life make love wct thing
 
+
+
+
+##### here #######
 
 ### for female_victim 
 ```{r}
 theta2 <- as.data.frame(theta)
 
-female <- theta2 %>% 
+community_org <- theta2 %>% 
   #renaming for a general topic
-  rename(female = '4') %>% 
-  top_n(20, female ) %>%
-  arrange(desc(female )) %>% 
-  select(female )
+  rename(community_org = '1') %>% 
+  top_n(20, community_org) %>%
+  arrange(desc(community_org)) %>% 
+  select(community_org)
 
 # Apply rownames_to_column
-female  <- tibble::rownames_to_column(female , "story_id") 
+community_org  <- tibble::rownames_to_column(community_org, "story_id") 
 
-female $story_id <- gsub("X", "", female $story_id)
+community_org$story_id <- gsub("X", "", community_org$story_id)
 
-head(female$story_id, 20)
+head(community_org$story_id, 20)
 #Checks out
 
 
@@ -642,8 +642,6 @@ head(female$story_id, 20)
 
 ### for 5_legal_proceedings
 ```{r}
-theta2 <- as.data.frame(theta)
-
 legal <- theta2 %>% 
   #renaming for a general topic
   rename(legal = '5') %>% 
@@ -665,44 +663,22 @@ head(legal$story_id, 20)
 
 ### for negro_lynching
 ```{r}
-theta2 <- as.data.frame(theta)
 
-unknown <- theta2 %>% 
+domestic_abuse <- theta2 %>% 
   #renaming for a general topic
-  rename(unknown = '3') %>% 
-  top_n(20, unknown ) %>%
-  arrange(desc(unknown )) %>% 
-  select(unknown )
+  rename(domestic_abuse = '4') %>% 
+  top_n(20, domestic_abuse ) %>%
+  arrange(desc(domestic_abuse )) %>% 
+  select(domestic_abuse )
 
 # Apply rownames_to_column
-unknown  <- tibble::rownames_to_column(unknown , "story_id") 
+domestic_abuse  <- tibble::rownames_to_column(domestic_abuse , "story_id") 
 
-unknown $story_id <- gsub("X", "", unknown $story_id)
+domestic_abuse $story_id <- gsub("X", "", domestic_abuse $story_id)
 
-head(unknown$story_id, 20)
+head(domestic_abuse$story_id, 20)
 #Checks out 
 #main theme is negros are lynching victims
-
-```
-
-#### for critizing_lynching
-```{r}
-theta2 <- as.data.frame(theta)
-
-critic<- theta2 %>% 
-  #renaming for a general topic
-  rename(critic = '2') %>% 
-  top_n(20, critic) %>%
-  arrange(desc(critic)) %>% 
-  select(critic)
-
-# Apply rownames_to_column
-critic <- tibble::rownames_to_column(critic, "story_id") 
-
-critic$story_id <- gsub("X", "", critic$story_id)
-
-#Checks out 
-
 
 ```
 
@@ -727,7 +703,7 @@ ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) +
    #                           #"gray",
    #                           #"orange")) +
   labs(title = "Common Narratives in Lynching News Coverage",
-       subtitle = "Six probable topics in white press sample. n=9,590",
+       subtitle = "Six probable topics in white press sample. n=270",
        caption = "Aggregate mean topic proportions per decade. Graphic by (redated - peer review) & (redated - peer review), 10-19-2024")
 
 # ggsave(here::here("../lynching_press/output_images_tables/Article_Images/Figure_15_white_topics_oct_19_2024.png"),device = "png",width=9,height=6, dpi=800)

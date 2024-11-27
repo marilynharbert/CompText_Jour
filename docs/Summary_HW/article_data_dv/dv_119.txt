@@ -1,51 +1,47 @@
 _______________
 
-AFC event 'Ignites' group's 30th anniversary
+Facebook trying to fix policy
 
 Author: Simonette, Matt
 
-https://www.proquest.com/newspapers/afc-event-ignites-groups-30th-anniversary/docview/1535253821/se-2?accountid=14696
+https://www.proquest.com/newspapers/facebook-trying-fix-policy/docview/1613191976/se-2?accountid=14696
 
-Abstract: "Nearly 30 years ago, when AIDS Foundation of Chicago was founded, we were faring a very different age in this epidemic," AFC Executive Director John PeLLer said. "We've made a tremendous amount of progress in the fight against HIV."
+Abstract: "Our policy has never been to require everyone on Facebook to use their Legal name," [Chris Cox] noted. "The spirit of our policy is that everyone on Facebook uses the authentic name they use in real life. For Sister Roma, that's Sister Roma. For Lil Miss Hot Mess, that's Lil Miss Hot Mess. Part of what's been so difficult about this conversation is that we support both of these individuals, and so many others affected by this, completely and utterly in how they use Facebook."
 
-Links: https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=29&amp;issue=35&amp;title=Windy+City+Times&amp;spage=9&amp;date=2014-05-28&amp;atitle=AFC+event+%27Ignites%27+group%27s+30th+anniversary&amp;au=Simonette%2C+Matt&amp;id=doi:
+Links: https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=30&amp;issue=2&amp;title=Windy+City+Times&amp;spage=12&amp;date=2014-10-08&amp;atitle=Facebook+trying+to+fix+policy&amp;au=Simonette%2C+Matt&amp;id=doi:
 
-https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=29&amp;issue=35&amp;title=Windy+City+Times&amp;spage=9&amp;date=2014-05-28&amp;atitle=AFC+event+%27Ignites%27+group%27s+30th+anniversary&amp;au=Simonette%2C+Matt&amp;id=doi:
+https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=30&amp;issue=2&amp;title=Windy+City+Times&amp;spage=12&amp;date=2014-10-08&amp;atitle=Facebook+trying+to+fix+policy&amp;au=Simonette%2C+Matt&amp;id=doi:
 
-Full text:   About 325 supporters of AIDS Foundation of Chicago (AFC) gathered May 16 at Ignite Studios for the organization's "Ignite" party, intended to Launch the yearlong celebration of the organization's 30th anniversary.
-"Nearly 30 years ago, when AIDS Foundation of Chicago was founded, we were faring a very different age in this epidemic," AFC Executive Director John PeLLer said. "We've made a tremendous amount of progress in the fight against HIV."
-PeLLer then cited many new developments that illustrate that progress, among them: new HIV cases are being reduced among some populations, going down 90 percent among injection drug users, for example; more people with HIV are Learning when they are HIV-positive; and evidence that HIV-positive partners on treatment are unlikely to transmit the infection to partners who are HIV-negative.
-PeLLer added that, "AFC recognized that helping people with HIV is about helping them with their daily struggles, from substance abuse to unstable housing, from homelessness to domestic violence and other challenges that they face in their Lives."
-Attorney Robert Mink was presented with the Lori Kaufman Volunteer Award by Kaufman herself. She thanked Mink for "hundreds of hours of free legal assistance" to AFC and other organizations.
-Accepting the award, Mink said, "The Leaders and staff of AFC have just got it right with me. They have embraced me as a non-traditional volunteer-they weren't afraid to find a role for me where I could help foster AFC's missions and goals. They connected me through the organization in so many ways."
-U.S. Sen. Dick Durbin then presented attorney Michael Bauer with AFC's Civic Leadership Award. Durbin said that Bauer educated him on many aspects relating to HIV/AIDS over the course of their friendship.
-"It's a friendship that goes beyond politics, and it's a friendship that Lasts to this day," Durbin said. "Michael had the heart and patience to take the time to educate this senate candidate and United States senator."
-Bauer paid tribute to Dr. Ron Sable, who opened the first medical clinic in Chicago that provided services to people with HIV/AIDS, and realized that government assistance was needed to for services and research that had the disease-he was the first openly gay candidate to run for Chicago City Council.
-"Many of us, myself included, Learned the importance of politics, the importance of getting people elected to office who were sensitive to our needs and would help us Legally and financially through their work and help in office" from Sable, Bauer said. "Every openly gay or Lesbian person elected to office walks in his footsteps."
-PeLLer said that, exactly one year Later-on May 15, 2015-AFC would host a gala commemorating the anniversary.
-Ignite Studios presented glass-blowing demonstrations over the course of the party.
+Full text:   Facebook officials announced Oct. 1 that they're working to fix the "real-name" policy that raised concerns among trans individuals, drag queens and other members of the LGBT community.
+Facebook Chief Products Officer Chris Cox apologized to LGBT community members the policy adversely affected.
+"In the two weeks since the real-name policy issues surfaced, we've had the chance to hear from many of you in these communities and understand the policy more clearly as you experience it," Cox wrote. "We've also come to understand how painful this has been. We owe you a better service and a better experience using Facebook, and we're going to fix the way this policy gets handled so everyone affected here can go back to using Facebook as you were."
+Cox said that a Facebook user had reported several hundred accounts as being fakes, adding, "These reports were among the several hundred thousand fake name reports we process every single week, 99 percent of which are bad actors doing bad things: impersonation, bullying, trolling, domestic violence, scams, hate speech, and more-so we didn't notice the pattern."
+Owners of suspected fake accounts are asked to verify their identities by submitting some form of identification, a practice Cox defended, saying it protected Facebook from users hiding behind pseudonyms to harass and bully other users. But he promised that flagged accounts would be managed in "a Less abrupt and more thoughtful" manner.
+"Our policy has never been to require everyone on Facebook to use their Legal name," Cox noted. "The spirit of our policy is that everyone on Facebook uses the authentic name they use in real life. For Sister Roma, that's Sister Roma. For Lil Miss Hot Mess, that's Lil Miss Hot Mess. Part of what's been so difficult about this conversation is that we support both of these individuals, and so many others affected by this, completely and utterly in how they use Facebook."
 
-Subject: Anniversaries; Nonprofit organizations; Acquired immune deficiency syndrome--AIDS
+Subject: Gays & lesbians; False information; Regulation; Social networks
 
-Company / organization: Name: AIDS Foundation of Chicago; NAICS: 813212
+Business indexing term: Subject: Social networks
+
+Company / organization: Name: Facebook Inc; NAICS: 516210, 518210
 
 Identifier / keyword: Y; GenderWatch
 
-Title: AFC event 'Ignites' group's 30th anniversary
+Title: Facebook trying to fix polic y
 
 Publication title: Windy City Times; Chicago, Ill.
 
-Volume: 29
+Volume: 30
 
-Issue: 35
+Issue: 2
 
-Pages: 9
+Pages: 12
 
 Number of pages: 1
 
 Publication year: 2014
 
-Publication date: May 28, 2014
+Publication date: Oct 8, 2014
 
 Publisher: Windy City Media Group
 
@@ -63,13 +59,15 @@ Language of publication: English
 
 Document type: News
 
-ProQuest document ID: 1535253821
+Document feature: Photographs
 
-Document URL: https://www.proquest.com/newspapers/afc-event-ignites-groups-30th-anniversary/docview/1535253821/se-2?accountid=14696
+ProQuest document ID: 1613191976
 
-Copyright: Copyright Windy City Media Group May 28, 2014
+Document URL: https://www.proquest.com/newspapers/facebook-trying-fix-policy/docview/1613191976/se-2?accountid=14696
 
-Last updated: 2023-09-15
+Copyright: Copyright Windy City Media Group Oct 8, 2014
+
+Last updated: 2023-09-19
 
 Database: GenderWatch
 

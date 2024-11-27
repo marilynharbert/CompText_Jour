@@ -1,54 +1,36 @@
 _______________
 
-NU conference looks at LGBT health
+Table of contents
 
-Author: Simonette, Matt
+Author: Featured database: GenderWatch
 
-https://www.proquest.com/newspapers/nu-conference-looks-at-lgbt-health/docview/1898633300/se-2?accountid=14696
+https://www.proquest.com/newspapers/table-contents/docview/1906866765/se-2?accountid=14696
 
-Abstract: Ilan H. Meyer-the Williams Distinguished Senior Scholar for Public Policy at the Williams Institute for Sexual Orientation Law and Public Policy at UCLA's School of Law-said April 29 that responses to his talks on LGBT-focused research and public policy have changed since the November elections. According to Karen Parker, director of National Institutes of Health's (NIH) Sexual and Gender Minority Research Office, in 2015, the government spent about $162 million funding about 301 research projects...
+Abstract: None available.
 
-Links: https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=32&amp;issue=33&amp;title=Windy+City+Times&amp;spage=4&amp;date=2017-05-03&amp;atitle=NU+conference+looks+at+LGBT+health&amp;au=Simonette%2C+Matt&amp;id=doi:
+Links: https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=32&amp;issue=37&amp;title=Windy+City+Times&amp;spage=3&amp;date=2017-05-31&amp;atitle=Table+of+contents&amp;au=&amp;id=doi:
 
-https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=32&amp;issue=33&amp;title=Windy+City+Times&amp;spage=4&amp;date=2017-05-03&amp;atitle=NU+conference+looks+at+LGBT+health&amp;au=Simonette%2C+Matt&amp;id=doi:
+https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=32&amp;issue=37&amp;title=Windy+City+Times&amp;spage=3&amp;date=2017-05-31&amp;atitle=Table+of+contents&amp;au=&amp;id=doi:
 
-Full text: Ilan H. Meyer-the Williams Distinguished Senior Scholar for Public Policy at the Williams Institute for Sexual Orientation Law and Public Policy at UCLA's School of Law-said April 29 that responses to his talks on LGBT-focused research and public policy have changed since the November elections.
-Wherein, prior to November, Meyer would have to convince audiences that advancing LGBT rights still required vigilance and work, he now has to convince them that the community's circumstances aren't completely bleak.
-Meyer spoke when Northwestern University's Institute for Sexual and Gender Minority Health and Wellbeing and Center on Halsted hosted the National LGBTQ Health Conference at the Hyatt Centric Hotel in downtown Chicago April 28-29. He primarily addressed models of minority health disparities and how those impacted the LGBT community.
-He noted that prejudice and stigma often lead to negative health outcomes for minority communities, and emphasized that individuals sometimes don't even see themselves as the targets of discrimination; sometimes, he noted, perpetrators might not use slurs but still harass members of minority groups.
-Meyer urged the audience to think about the idea of resilience, which targeted individuals need to stand up for themselves. He noted that American culture's linking of resilience with stoicism and internal fortitude offers little helpful to those impacted by prejudice.
-"Resilience doesn't happen in a vacuum," he said. "Resilience happens when you have resources."
-A number of speakers in the program addressed the scope of current research on LGBT health as well as its funding from the federal government.
-According to Karen Parker, director of National Institutes of Health's (NIH) Sexual and Gender Minority Research Office, in 2015, the government spent about $162 million funding about 301 research projects relating to LGBT health.
-She further noted that about 73 percent of the money goes to issues related to HIV/AIDS.
-"Within our office we are very concerned about this other 27 percent that are very often lumped into this other smaller piece of the pie," she said, noting that other realms, such as mental-health issues are thus woefully underfunded. "It's certainly not enough, and I have no excuse for NIH about that."
-Audience members expressed concern about how the funding structure will change with Republicans in both the White House and in control of Congress. But Parker and her colleagues emphasized that many career-officials worked at NIH and that the most important task for researchers was to continue to apply for funding and demonstrate that there is a need for and interest in this kind of work.
-NIH officials, Parker said, had "incredibly wellcalibrated moral compasses."
-Others speaking at the Northwestern-Center on Halsted conference included Laura Kann of the Centers of Disease Control and Prevention (CDC) and Bianca Wilson of the Williams Institute. Breakout sessions addressed topics such as PrEP, LGBT intimate-partner violence and mental health, among other topics.
-
-Subject: Research; Funding; Public policy
-
-Location: Chicago Illinois; United States--US
-
-Company / organization: Name: Congress; NAICS: 921120
+Full text: Not available.
 
 Identifier / keyword: Y; GenderWatch
 
-Title: NU conference looks at LGBT health
+Title: Table of contents
 
 Publication title: Windy City Times; Chicago, Ill.
 
 Volume: 32
 
-Issue: 33
+Issue: 37
 
-Pages: 4
+Pages: 3
 
 Number of pages: 1
 
 Publication year: 2017
 
-Publication date: May 3, 2017
+Publication date: May 31, 2017
 
 Publisher: Windy City Media Group
 
@@ -64,17 +46,15 @@ Source type: Newspaper
 
 Language of publication: English
 
-Document type: News
+Document type: Table Of Contents
 
-Document feature: Photographs
+ProQuest document ID: 1906866765
 
-ProQuest document ID: 1898633300
+Document URL: https://www.proquest.com/newspapers/table-contents/docview/1906866765/se-2?accountid=14696
 
-Document URL: https://www.proquest.com/newspapers/nu-conference-looks-at-lgbt-health/docview/189863 3300/se-2?accountid=14696
+Copyright: Copyright Windy City Media Group May 31, 2017
 
-Copyright: Copyright Windy City Media Group May 3, 2017
-
-Last updated: 2023-05-31
+Last updated: 2023-05-30
 
 Database: GenderWatch
 
