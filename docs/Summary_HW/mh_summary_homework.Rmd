@@ -44,7 +44,7 @@ Extracting data from the .txt file
 
 ```{r}
 # Set the path to your .txt file
-file_path <- "../Summary_HW/windycity_dv_1_100.txt"
+file_path <- "../Summary_HW/ProQuestDocuments-2024-11-27.txt"
 
 # Read the .txt file line by line
 text <- readLines(file_path)
@@ -55,10 +55,10 @@ gay_dv_articles <- data.frame(text)
 
 Extract metadata from excel file
 ```{r}
-metadata_top100_dv_windy_city <- read_excel("~/Code/CompText_Jour/docs/Summary_HW/windycity_dv_1_100.xls")
+metadata <- read_excel("~/Code/CompText_Jour/docs/Summary_HW/ProQuestDocuments-2024-11-27.xls")
 
 # create indices
-metadata_top100_dv_windy_city <- metadata_top100_dv_windy_city %>%
+metadata_dv_windy_city <- metadata %>%
   mutate(index = row_number())
 
 ```
@@ -69,10 +69,12 @@ create linked index
 # Step 2: Combine lines into one single string
 text_combined <- paste(text, collapse = "\n")
 
-text_combined <- sub(".*Table of contents", "Table of contents", text_combined)
+# text_combined <- sub(".*Table of contents", "Table of contents", text_combined)
+
 
 # Step 3: Split the text by the "End of Document" phrase
-documents <- strsplit(text_combined, "____________________________________________________________")[[1]]
+documents <- strsplit(text_combined, "_____________________________________________")[[1]]
+### only 213 elements in documents - should be 216 
 
 # Step 4: Write each section to a new file
 output_dir <- "../Summary_HW/article_data_dv/"
@@ -80,12 +82,15 @@ for (i in seq_along(documents)) {
   output_file <- file.path(output_dir, paste0("dv_", i, ".txt"))
   writeLines(documents[[i]], output_file)
 }
+### i goes up to 213 
 
 cat("Files created:", length(documents), "\n")
 
-moley_index <- read_lines("../Summary_HW/article_data_dv/dv_1.txt")
+# says it created 213 files
+
+dv_index <- read_lines("../Summary_HW/article_data_dv/dv_2.txt")
 # Extract lines 5 to 215
-extracted_lines <- moley_index[5:215]
+extracted_lines <- dv_index[6:528]
 
 # Print the extracted lines to the console
 cat(extracted_lines, sep = "\n")
@@ -103,7 +108,7 @@ cleaned_data <- extracted_lines |>
     is_title = str_detect(trimmed_line, "^\\d+\\. "),  
   )
 
-metadata_top100_dv_windy_city <- metadata_top100_dv_windy_city %>%
+metadata_dv_windy_city <- metadata_dv_windy_city %>%
   rename(title = Title)
 
 #new title column with trim numbers from titles
@@ -120,7 +125,7 @@ cleaned_data <- cleaned_data %>%
 
 # add dates
 aligned_data <- cleaned_data %>%
-  left_join(metadata_top100_dv_windy_city, by = "index")
+  left_join(metadata_dv_windy_city, by = "index")
 
 # Step 3: Rename columns for clarity
 final_data <- aligned_data |>
@@ -187,7 +192,7 @@ articles_df <- articles_df %>%
   inner_join(final_index)
 
 articles_df <- articles_df %>%
-  slice(-c(2:252)) |> 
+  slice(-c(2:530)) |> 
   #gets rid of blank rows
     filter(trimws(sentence) != "") 
 
@@ -249,6 +254,8 @@ clean_df <- articles_df %>%
     "feature photographs" = ""
   ))) 
 
+# only 258 index
+
 ```
 
 Tokenize the data
@@ -289,13 +296,6 @@ count_df <- clean_df %>%
   group_by(index) %>%
   summarise(count_words = str_count(text, '\\S+')) %>%
   summarise(count_lines = sum(count_words))
-
-```
-
-Data Sample
-
-```{r}
-head(clean_df, 30)
 
 ```
 
@@ -354,3 +354,17 @@ year_plot <- ggplot(data=year_df, aes(year, n, fill = n)) +
 
 plot(year_plot)
 ```
+
+
+topic modeling
+```{r}
+
+
+```
+
+sentiment analysis
+```{r}
+
+
+```
+

@@ -1,50 +1,527 @@
+_______________
 
+Table of contents
 
-Search Strategy
+1. With her sexual orientation called a motive to kill, she's now appealing for clemency
 
-Set#: S9
-Searched for: "windy city times" AND ("domestic violence" OR "domestic abuse" OR "intimate partner violence" OR "intimate partner abuse") AND publication.exact("Windy City Times")
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 267
+2. WHEN CRIME GOES VIRAL
 
-Set#: S8
-Searched for: "windy city times" AND ("domestic violence" OR "domestic abuse" OR "intimate partner violence" OR "intimate partner abuse")
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 373
+3. Chicago Foundation for Women virtually holds 2020 Impact Awards
 
-Set#: S7
-Searched for: "windy city times" AND ("domestic violence" OR "domestic abuse" OR "intimate partner violence" OR "intimate partner abuse")
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 373
+4. Table of Contents
 
-Set#: S6
-Searched for: "windy city times" AND ("domestic violence" OR "domestic abuse" OR "intimate partner violence" OR "intimate partner abuse") AND publication.exact("Windy City Times")
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 267
+5. Credits
 
-Set#: S5
-Searched for: "windy city times" AND ("domestic violence" OR "domestic abuse" OR "intimate partner violence" OR "intimate partner abuse") AND (publication.exact("Windy City Times") AND bdl(1006729))
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 267
+6. Census 2020 is complicated for LGBTQ people, but it counts
 
-Set#: S4
-Searched for: "windy city times" AND ("domestic violence" OR "domestic abuse" OR "intimate partner violence" OR "intimate partner abuse") AND (publication.exact("Windy City Times") AND bdl(1006729))
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 267
+7. Gay sign-language interpreter on press conferences, LGBTQs
 
-Set#: S3
-Searched for: "windy city times" AND ("domestic violence" OR "domestic abuse" OR "intimate partner violence" OR "intimate partner abuse") AND publication.exact("Windy City Times")
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 267
+8. Patin at Hyde Park through Feb. 28
 
-Set#: S2
-Searched for: "windy city times" AND ("domestic violence" OR "domestic abuse" OR "intimate partner violence" OR "intimate partner abuse")
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 373
+9. Guide to the LGBTQs
 
-Set#: S1
-Searched for: "windy city times" + ("domestic violence" OR "intimate partner abuse" OR "intimate partner violence" OR "domestic abuse")
-Databases: American Periodicals, ARTbibliographies Modern (ABM), Avery Index to Architectural Periodicals, Baltimore Sun, Black Abolitionist Papers, Black Studies Periodicals Database, British Periodicals, Colonial State Papers, Coronavirus Research Database, Criminal Justice Database, Design & Applied Arts Index (DAAI), Digitale Bibliothek Deutscher Klassiker, Digital National Security Archive, Early Modern Books, Ebook Central, Ebook Central, Editions and Adaptations of Shakespeare, Entertainment Industry Magazine Archive, Ethnic NewsWatch, GenderWatch, History Vault, International Bibliography of Art (IBA), Latino Literature: Poetry, Drama, and Fiction, Linguistics and Language Behavior Abstracts (LLBA), Literature Online, Materials Science & Engineering Collection, New York Times, PAIS Index, Periodicals Archive Online, ProQuest Dissertations & Theses Global, ProQuest Historical Newspapers: Atlanta Daily World, ProQuest Historical Newspapers: Chicago Defender, ProQuest Historical Newspapers: Chicago Tribune, ProQuest Historical Newspapers: Cleveland Call and Post, ProQuest Historical Newspapers: Detroit Free Press (1831-1922), ProQuest Historical Newspapers: Hartford Courant, ProQuest Historical Newspapers: Los Angeles Sentinel, ProQuest Historical Newspapers: Los Angeles Times, ProQuest Historical Newspapers: New York Amsterdam News, ProQuest Historical Newspapers: New York Tribune, ProQuest Historical Newspapers: Norfolk Journal and Guide, ProQuest Historical Newspapers: Philadelphia Tribune, ProQuest Historical Newspapers: Pittsburgh Courier, ProQuest Historical Newspapers: San Francisco Chronicle, ProQuest Historical Newspapers: St. Louis Post-Dispatch (1874-1922), ProQuest Historical Newspapers: The American Hebrew & Jewish Messenger, ProQuest Historical Newspapers: The American Israelite, ProQuest Historical Newspapers: The Atlanta Constitution, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Afro-American, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Baltimore Sun, ProQuest Historical Newspapers: The Boston Globe, ProQuest Historical Newspapers: The Christian Science Monitor, ProQuest Historical Newspapers: The Jerusalem Post, ProQuest Historical Newspapers: The Jewish Advocate, ProQuest Historical Newspapers: The Jewish Exponent, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The New York Times with Index, ProQuest Historical Newspapers: The Wall Street Journal, ProQuest Historical Newspapers: The Washington Post, ProQuest Historical Newspapers: The Washington Post, ProQuest Recent Newspapers: Barron's, ProQuest Recent Newspapers: Chicago Tribune, ProQuest Recent Newspapers: Los Angeles Times, ProQuest Recent Newspapers: The Baltimore Sun, ProQuest Recent Newspapers: The New York Times, ProQuest Recent Newspapers: The Wall Street Journal, ProQuest Recent Newspapers: The Washington Post, PTSDpubs, Public Health Database, Publicly Available Content Database, Schillers Werke, Sociological Abstracts, The Christian Science Monitor, The Wall Street Journal, The Washington Post, Trends & Policy: U.S. Immigration News, Worldwide Political Science Abstracts
-Results: 378
+10. Patin at Hyde Park through Feb. 28
+
+11. Levander Smith Jr.: Out judicial candidate on status, campaign
+
+12. letters
+
+13. Credits
+
+14. Youth group hosts gender-expansive services symposium
+
+15. Pritzker names Bennett new state human-rights director
+
+16. Chicago writer explores feminist accountability, transformative justice
+
+17. BILLY Masters
+
+18. COMMUNITY CALENDAR
+
+19. Bishop Phyllis V. Pennese on leadership, 15-year anniversary
+
+20. Panel focuses on LGBTQ domestic violence stigmas
+
+21. Table of contents
+
+22. COMMUNITY CALENDAR
+
+23. Immigrants, officials criticize Rauner vetoes
+
+24. Making no small plans: Marcia Lipetz has died
+
+25. Artemisia Fest fights for femme presentation
+
+26. COMMUNITY CALENDAR
+
+27. The violence never stops: 16 trans murders already in 2018
+
+28. Dishing with Christine Ebersole and Seth Rudetsky
+
+29. Wachowski exhibit featured at Rush's Pride reception
+
+30. 19TH ANNUAL 30 UNDER THIRTY HONORS
+
+31. Getting to know American Beauty Show's Paul Dykstra
+
+32. Black women anti-rape advocates unite at UIC
+
+33. Advocate recounts challenges facing women with HIV
+
+34. Record number of LGBTs running in March Illinois primary election
+
+35. Brad Trowbridge: Activist again takes aim at judicial post
+
+36. Record number of LGBTs running in March Illinois primary election
+
+37. Southern Gothic
+
+38. Record number of LGBTs running in March Illinois primary election
+
+39. MCC elder talks Cajun roots, faith and lesbian polyamorous relationship
+
+40. My Black lesbian body is a target for police brutality
+
+41. Credits
+
+42. NCAVP, HRC/TPOCC release reports on anti-trans violence
+
+43. Judge Nancy Katz reflects on career
+
+44. Housing-rights activists protest Cappleman's office
+
+45. Legal specialist talks about aspects of criminal-justice system
+
+46. Sidetrack’s OUTspoken! Series: July’s featured storytellers
+
+47. 18TH ANNUAL THIRTY UNDER 30 HONORS
+
+48. NCAVP report: 2016 deadliest year for HIV, LGBT communities
+
+49. Patrick Dati raises voice against domestic abuse
+
+50. Table of contents
+
+51. 'Doll Parts': Talking with Amanda Lepore
+
+52. IPV study taking place at NU
+
+53. NU conference looks at LGBT health
+
+54. LGBTQ partner violence presents unique challenges
+
+55. COMMUNITY CALENDAR
+
+56. A few LGBTQ concerts to watch out for
+
+57. BILLY Masters
+
+58. Center relaunches therapy group for LGBT violence survivors
+
+59. Rep. Lipinski's votes on LGBT issues
+
+60. The next wave
+
+61. BILLY Masters
+
+62. Gaylon Alcaraz's radical journey
+
+63. COMMUNITY CALENDAR
+
+64. Fused Muse brings audiences to 'Edge of Shelter'
+
+65. Dems triumph in Illinois races
+
+66. 24th District incumbent faces a challenge
+
+67. Love and violence in Black LGBTQ communities
+
+68. Sarah Schulman discusses queer culture, 'Conflict'
+
+69. MAP report shows shocking disparities in the bisexual community
+
+70. Dawn Valenti: A Chicago survivor's story
+
+71. Rita Adair talks activism, upcoming book, social work
+
+72. Activist Rachel Williams talks #SayHerName, BYP100, intersectionality
+
+73. Chicago's Latino community stands with the LGBTQ Latino community
+
+74. Making sense of senseless acts
+
+75. 'Mudderella' June 4
+
+76. Talking with prison abolitionist Mariame Kaba
+
+77. Assault, violence groups release statement
+
+78. 'Mudderella' June 4
+
+79. Activist/scholar Richie keynotes International Women's Day event
+
+80. in the LIFE: Kyle J Krueger
+
+81. Affinity holds annual Burning Bowl, names new director
+
+82. ASK A FEMINIST
+
+83. Chicago homeless, advocates confront Ald. Cappleman
+
+84. Steinem, Gay talk with sold-out Chicago audience
+
+85. New study aims to improve health care for LGBT people of color
+
+86. letters
+
+87. Windy City Times at 30
+
+88. 19th transgender murder raises questions about reporting
+
+89. Demystifying sexual abuse in the LGBTQ community
+
+90. COMMUNITY CALENDAR
+
+91. Leaders reflect on activism as organization folds
+
+92. Commissioner launches Off the Sidelines-Chicago
+
+93. Deborah's Place marks 30 years fighting for homeless women
+
+94. Griner, Johnson under seven-game suspension
+
+95. Griner, Johnson tie the knot
+
+96. Amigas Latinas to fold after 20 years; last event July 10
+
+97. Jussie Smollett and Yazz: Lyons rule 'Empire'
+
+98. Longtime political activist Jean Hardisty dies
+
+99. U.S. murders of trans, gender-exploring people continue
+
+100. HUD tells homeless shelters to respect self-identified gender
+
+101. Out gay candidate makes play for 15th Ward seat
+
+102. Sam Smith star of the Grammys
+
+103. TPAN receives $115K from Alphawood
+
+104. Letters to the editor
+
+105. Chicago Women Take Action forum hosts mayoral candidates
+
+106. Intimate partner violence report out
+
+107. Dear White People; Nightcrawler; film note
+
+108. Chicago lesbian joins NFL domestic-violence, sexual-assault group
+
+109. Intimate partner violence report out
+
+110. CALENDAR
+
+111. UIC policy expert named to NFL's violence panel
+
+112. Facebook trying to fix policy
+
+113. CALENDAR
+
+114. Billie Jean King takes fair shot at equality at luncheon
+
+115. Honors roll in for UIC researcher
+
+116. Montrose Rocks annual event faces uncertain future
+
+117. AFC event 'Ignites' group's 30th anniversary
+
+118. Summer staycations
+
+119. Lay Me Down Softly
+
+120. LGBT advocates praise VAWA guidelines
+
+121. Woman fights for right to 'walk while trans'
+
+122. Is CeCe McDonald Free?
+
+123. LGBT rights among topics discussed at immigration summit
+
+124. CALENDAR
+
+125. Rachelle Brown works on LGBT religious issues
+
+126. Looking back: Sports & Entertainment 2013
+
+127. Looking back The year in national news
+
+128. What's up next for Chicago's Catholics?
+
+129. CALENDAR
+
+130. DICK Durbin visits Center on Halsted
+
+131. Life after marriage (equality)
+
+132. Coming Out for Community
+
+133. Queer South Asian activist wades into marriage battle
+
+134. LGBT domestic-violence murder stats stun advocates
+
+135. Talking with the ladies behind the BlogHer conference
+
+136. 'March on Springfield' to take place Oct. 22
+
+137. Lane Tech teacher out and proud
+
+138. Rev. Nancy Wilson, MCC conference headed to Chicago
+
+139. Beth Richie on race, gender and the 'prison nation'
+
+140. Bar association offers training regarding LGBT domestic abuse
+
+141. Center on Halsted's gala puts Chaka Khan, honorees on center stage
+
+142. State's Attorney's LGBTQ/hate crime specialist talks crime and justice
+
+143. With Malice Aforethought: LGBTQs and the criminal justice system
+
+144. Congregation Or Chadash welcomes new rabbi
+
+145. Obama signs VAWA, singles out gay center
+
+146. State of the Union address garners mixed reviews
+
+147. calendar Q
+
+148. 'Vagina Monologues' in Aurora Feb. 15
+
+149. 'Vagina Monologues' in Aurora Feb. 15
+
+150. Seeing a future beyond formal LGBT equality: Talking with Urvashi Vaid
+
+151. Teen Living Programs serves homeless youth on South Side
+
+152. Actress Sheryl Lee Ralph talks HIV/AIDS activism, 'Divas'
+
+153. Intimate partner violence report cites lack of access
+
+154. Playing with porn
+
+155. Chicago team are softball champs; squads fall in flag football
+
+156. LGBT fall preview
+
+157. Skin Tight
+
+158. LGBTs question Catholic Charities deal with city for homeless outreach
+
+159. GOP reps call for bipartisan support of anti-violence act
+
+160. Letters to the editor
+
+161. LGBT leaders, activists talk needs-assessment study
+
+162. Esera Tuaolo: Coming back from darkness
+
+163. 13th Annual THIRTY under 30
+
+164. Organizers start new chapter with Black LGBT Pride event
+
+165. Marriage equality includes the military
+
+166. calendar
+
+167. Panel discusses violence in gay male communities
+
+168. Senate vote keeps LGBT protections in domestic-abuse bill
+
+169. LGBT, HIV/AIDS groups among Cubs grantees
+
+170. calendar Q
+
+171. Queer Bronzeville: A History of African American LGBTs on Chicago's South Side, 1900-1985
+
+172. Taking "Action"
+
+173. Judge Mary Trew
+
+174. calendar q
+
+175. Few services for gay survivors of domestic abuse
+
+176. Guide to the gays
+
+177. Guide to the gays
+
+178. Lesbian judge holds campaign fundraiser
+
+179. ELECTIONS 2012: Brad Trowbridge on counseling, inclusive slogan
+
+180. Guide to the gays
+
+181. Anti-domestic violence group's gala March 10
+
+182. Dr. Carl Bell seeks to revolutionize HIV prevention and treatment
+
+183. Guide to the Gays
+
+184. Chaka Khan: She's every woman
+
+185. POW-WOW provides space for women poets
+
+186. calendar Q
+
+187. Hull House Association to close
+
+188. LGBT intimate violence report released
+
+189. LGBT anti-violence advocates meet with Obama officials
+
+190. Meredith Baxter: Lesbian actress' family ties
+
+191. 'Jim Flint: The Boy from Peoria' book available Nov. 20
+
+192. TPAN gets $100K grant
+
+193. Chicago readies for largest U.S. AIDS confab
+
+194. Researcher unveils 'Runaway Youth Longitudinal Study'
+
+195. Nation's largest AIDS conference to spotlight Chicago groups
+
+196. Gay judge heading domestic-violence area
+
+197. Shadow of a Gunman
+
+198. Employee claims sexual harassment, unfair termination
+
+199. 'The Faggot Who Could Fly' at Center Aug. 8
+
+200. Latina report shows anti-gay bias, abuse
+
+201. 'The Faggot Who Could Fly' at Center Aug. 8
+
+202. Bar foundation awards grants to 23 nonprofits
+
+203. Taking it to the streets: Pink Angels
+
+204. WINDY TIMES CITY 12th Annual THIRTY under 30
+
+205. Mark Ishaug pushes AIDS agenda in Chicago and far beyond
+
+206. House holds DOMA-DoJ hearing
+
+207. U.S. AIDS Confab in Chicago this year
+
+208. Meredith Baxter on new book, coming out
+
+209. PASSAGES: Elizabeth Tocci
+
+210. The Piano Teacher
+
+211. calendar Q
+
+212. Scott Lee Cohen on LGBTs, comeback
+
+213. Sheila Simon on her office and equality
+
+214. Lesbian appointed Cook County judge
+
+215. Margaret Cho: Comic/actress is 'Cho Dependent'
+
+216. Carousel
+
+217. Reefer Madness: The Musical
+
+218. Confab looks at queers and sex offenders
+
+219. Jose Rios: Police LGBT liaison, and loving it
+
+220. calendar
+
+221. DADT enforcement changes announced
+
+222. Sharmili Majmudar: Believing in a better world
+
+223. Drug task force starts Web site
+
+224. Cubs' Laura Ricketts: Owner making history
+
+225. Gay candidates net mixed results
+
+226. Will faith-based agencies help Haiti's gay community?
+
+227. Guide to the Gays
+
+228. Mary Trew
+
+229. 100 AND UNDER Holday Gift Guide
+
+230. Letter
+
+231. County board candidates vie for gay vote
+
+232. LGBTs and cyberstalking
+
+233. Center's domestic-violence safety campaign in gear
+
+234. Groups speak on healthcare reform
+
+235. Steinem speaks
+
+236. NATIONAL ROUNDUP
+
+237. BILLY MASTERS
+
+238. Presenters look at stopping violence
+
+239. Health summit Aug. 14-18
+
+240. Health summit Aug. 14-18
+
+241. Farrah Fawcett dies at 62
+
+242. 30 UNDER THIRTY HONORS
+
+243. Vernita Gray: Fighting for 40 years
+
+244. 'Straight' talk from Debra Chasnoff
+
+245. Yes Means Yes! Visions of Female...
+
+246. A look back: Talking with Burris
+
+247. On the Shore of the Wide World
+
+248. The Young Ladies of...
+
+249. Beyond the wall: LGBT police
+
+250. Del Martin dies
+
+251. Anita Alvarez holds Pride reception
+
+252. 30 UNDER THIRTY 2008
+
+253. Partner violence among forum topics
+
+254. Gay marriage and immigration: Laboring over love
+
+255. Gay pioneer Larry McKeon dies at 63
+
+256. Confab focuses on LGBTs and immigration
+
+257. LGBTs part of May 1 immigration march
+
+258. Body language: A dancer confesses
+
+259. David Halperin on what gay men want
+
+260. Rev. Jeremiah Wright Gets LGBT Support
+
+261. The Revolution Will Not Be Funded: Beyond the Non-Profit Industrial Complex
 
 

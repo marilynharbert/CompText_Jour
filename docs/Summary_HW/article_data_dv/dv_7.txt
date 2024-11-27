@@ -1,64 +1,34 @@
+_______________
 
+Credits
 
-Document 5 of 100
+Author: Anonymous
 
-Levander Smith Jr.: Out judicial candidate on status, campaign
-
-Author: Davis, Andrew
-
-https://www.proquest.com/newspapers/levander-smith-jr-out-judicial-candidate-on/docview/2343015356/se-2?accountid=14696
+https://www.proquest.com/newspapers/credits/docview/2407599190/se-2?accountid=14696
 
 Abstract: None available.
 
-Links: https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=35&amp;issue=8&amp;title=Windy+City+Times&amp;spage=9&amp;date=2020-01-08&amp;atitle=Levander+Smith+Jr.%3A+Out+judicial+candidate+on+status%2C+campaign&amp;au=Davis%2C+Andrew&amp;id=doi:
+Links: https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=35&amp;issue=17&amp;title=Windy+City+Times&amp;spage=3&amp;date=2020-05-13&amp;atitle=Credits&amp;au=Anonymous&amp;id=doi:
 
-https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=35&amp;issue=8&amp;title=Windy+City+Times&amp;spage=9&amp;date=2020-01-08&amp;atitle=Levander+Smith+Jr.%3A+Out+judicial+candidate+on+status%2C+campaign&amp;au=Davis%2C+Andrew&amp;id=doi:
+https://usmai-umcp.primo.exlibrisgroup.com/openurl/01USMAI_UMCP/01USMAI_UMCP:UMCP?sid=ProQ:&amp;issn=1049698X&amp;volume=35&amp;issue=17&amp;title=Windy+City+Times&amp;spage=3&amp;date=2020-05-13&amp;atitle=Credits&amp;au=Anonymous&amp;id=doi:
 
-Full text: Headnote ELECTIONS 2020
-Levander Smith Jr. is in a unique position.
-It's his first campaign for Cook County Circuit Court judge-but he already sits on the bench.
-In February 2019, the Illinois Supreme Court appointed Smith as a judge (in the domestic-violence division), with a term set to expire Dec. 7, 2020. Therefore, in order to retain his seat, he has to run for office (in the Larsen vacancy, so called because Judge Diane Larsen retired, paving the way for Smith to be appointed). However, it turns out that he also holds another judgeship.
-Windy City Times: You're already a judge, but you're running for a vacancy.
-Levander Smith Jr.: Yes. I applied for an associate judgeship in 2017; that process didn't start until 2018.1 was selected to be among the finalists and-from what I understand-for the first time in Cook County history, I tied with a guy for the last position (the 17th slot). I again applied for an associate judgeship and I waited patiently for that round to take hold again-and then I was called in February [2019] to fill a vacancy for someone who retired during her six-year term. So I'm completing her term, but I have to be in that number, so to speak [laughs], in order to keep my position for the next six years as a circuit-court judge.
-In the process of campaigning for this circuit-court position, I was blessed to not only make the short list for the associate round but also to get an associate position, so I [was sworn in] on Jan. 6 as an associate judge. I know it's a bit confusing. [Laughs] And if I win the primary in March, I'll be back on my way to being a circuit-court judge.
-WCT: So how does that hierarchy work?
-LSJ: Circuit-court judges are elected by the people; associate judges are selected by circuit-court judges-so I did vote for myself. [Laughs] It's weird, I know.
-The [circuit-court judges] make a little more money and, more importantly, have more voting power.
-WCT: Your website says you've "[focused] most of his career fighting to protect children and families." Do you believe a judge can be an advocate?
-LSJ: No-a judge is not an advocate. That phrase is from when I was an attorney. I worked for DCFS.
-[Advocacy] is one of the temptations to overcome when you're a new judge. You want to advocate certain cases and people, but you must remain neutral. When it boils down to it, it's about the law and the facts of the case.
-WCT: How did your Victory Fund endorsement come about? [Note: The Victory Fund endorses LGBTQ political candidates.]
-LSJ: That's another blessing. [Laughs] I was advised to apply and completed the application process and-lo, and behold-there were a couple phone interviews, and I was selected. I was so happy to receive that endorsement because I knew that one of my colleagues received the endorsement as well, and I was so happy for her.
-WCT: What do you think are the most significant issues affecting the LGBTQ community?
-LSJ: Well, I sit in domestic-violence court and I see a number of same-sex couples there as well as members of the trans community. The worst violence I've ever seen has been with [LGBTQ] couples. The threats are so pervasive with members of the trans community.
-WCT: This is your initial campaign. Whafs been the most surprising thing so far?
-LSJ: [Laughs] In addition to the amount of time and money spent? The lack of sleep. But it's all good because I get to meet a lot of good people. People are fundamentally good, even though you hear so much on the news.
-WCT: You're running against two other people in the Democratic primary. Whafs your biggest advantage in this race, and whafs your biggest disadvantage?
-LSJ: One advantage-which I just discovered a few days ago-is that I'm listed first on the ballot. I'm told that there have been studies done that show that people tend to vote for the person listed first. I also think I stand out in that I offer more diversity than my opponents, being a man of color who is openly gay.
-My biggest disadvantage? That I'm a man of color. I've seen a lack of victories for people of color county-wide.
-Smith's website is at SmithJrForJudge.com.
-
-Subject: Primaries & caucuses; Violence; Local elections; Endorsements; State court decisions; Judges & magistrates
-
-Location: Cook County Illinois; Illinois; United States--US
-
-Company / organization: Name: Supreme Court-Illinois; NAICS: 922110; Name: Windy City Times; NAICS: 513110
+Full text: Not available.
 
 Identifier / keyword: Y; GenderWatch
 
-Title: Levander Smith Jr.: Out judicial candidate on status, campaign
+Title: Credits
 
 Publication title: Windy City Times; Chicago, Ill.
 
 Volume: 35
 
-Issue: 8
+Issue: 17
 
-Pages: 9
+Pages: 3
 
 Publication year: 2020
 
-Publication date: Jan 8, 2020
+Publication date: May 13, 2020
 
 Publisher: Windy City Media Group
 
@@ -74,15 +44,15 @@ Source type: Newspaper
 
 Language of publication: English
 
-Document type: Interview
+Document type: Credits
 
-ProQuest document ID: 2343015356
+ProQuest document ID: 2407599190
 
-Document URL: https://www.proquest.com/newspapers/levander-smith-jr-out-judicial-candidate-on/docview/2343015356/se-2?accountid=14696
+Document URL: https://www.proquest.com/newspapers/credits/docview/2407599190/se-2?accountid=14696
 
-Copyright: Copyright Windy City Media Group Jan 8, 2020
+Copyright: Copyright Windy City Media Group May 13, 2020
 
-Last updated: 2023-05-30
+Last updated: 2023-05-31
 
 Database: GenderWatch
 
