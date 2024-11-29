@@ -32,6 +32,10 @@ Link to initial data: https://github.com/marilynharbert/CompText_Jour/blob/main/
 ##Code## Loading libraries
 
 ```{r}
+suppressMessages(library(RODBC))
+
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+
 library(tidyverse)
 library(pdftools)
 library(quanteda)
