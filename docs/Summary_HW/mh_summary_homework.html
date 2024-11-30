@@ -677,8 +677,11 @@ bigram_ct &lt;- bigrams_filtered %&gt;%
 top_20_bigrams &lt;- head(bigram_ct, 20)</code></pre>
 <pre class="r"><code>formattable(top_20_bigrams, 
             align =c(&quot;c&quot;,&quot;c&quot;,&quot;c&quot;,&quot;c&quot;,&quot;c&quot;, &quot;c&quot;, &quot;c&quot;, &quot;c&quot;, &quot;r&quot;), 
-            list(`Top 20 Bigrams` = formatter(
-              &quot;span&quot;, style = ~ style(color = &quot;black&quot;,font.weight = &quot;bold&quot;)) 
+            list(
+              `Top 20 Bigrams` = formatter(
+              &quot;span&quot;, style = ~ style(color = &quot;black&quot;,font.weight = &quot;bold&quot;)),
+              `n`= color_tile(&quot;cadetblue1&quot;, &quot;dodgerblue4&quot;)
+
 ))</code></pre>
 <table class="table table-condensed">
 <thead>
@@ -703,7 +706,7 @@ domestic
 violence
 </td>
 <td style="text-align:center;">
-438
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #104e8b">438</span>
 </td>
 </tr>
 <tr>
@@ -714,7 +717,7 @@ cook
 county
 </td>
 <td style="text-align:center;">
-210
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #62b2d0">210</span>
 </td>
 </tr>
 <tr>
@@ -725,7 +728,7 @@ lgbt
 community
 </td>
 <td style="text-align:center;">
-166
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #71c6de">166</span>
 </td>
 </tr>
 <tr>
@@ -736,7 +739,7 @@ illinois
 united
 </td>
 <td style="text-align:center;">
-113
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #84ddee">113</span>
 </td>
 </tr>
 <tr>
@@ -747,7 +750,7 @@ hiv
 aids
 </td>
 <td style="text-align:center;">
-110
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #86deef">110</span>
 </td>
 </tr>
 <tr>
@@ -758,7 +761,7 @@ sexual
 orientation
 </td>
 <td style="text-align:center;">
-107
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #87e0f0">107</span>
 </td>
 </tr>
 <tr>
@@ -769,7 +772,7 @@ openly
 gay
 </td>
 <td style="text-align:center;">
-104
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #88e1f1">104</span>
 </td>
 </tr>
 <tr>
@@ -780,7 +783,7 @@ anti
 violence
 </td>
 <td style="text-align:center;">
-100
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #89e3f2">100</span>
 </td>
 </tr>
 <tr>
@@ -791,7 +794,7 @@ intimate
 partner
 </td>
 <td style="text-align:center;">
-97
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #8ae4f3">97</span>
 </td>
 </tr>
 <tr>
@@ -802,7 +805,7 @@ executive
 director
 </td>
 <td style="text-align:center;">
-95
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #8be5f4">95</span>
 </td>
 </tr>
 <tr>
@@ -813,7 +816,7 @@ partner
 violence
 </td>
 <td style="text-align:center;">
-90
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #8de7f5">90</span>
 </td>
 </tr>
 <tr>
@@ -824,7 +827,7 @@ gays
 lesbians
 </td>
 <td style="text-align:center;">
-88
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #8de8f6">88</span>
 </td>
 </tr>
 <tr>
@@ -835,7 +838,7 @@ lgbtq
 community
 </td>
 <td style="text-align:center;">
-86
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #8ee9f7">86</span>
 </td>
 </tr>
 <tr>
@@ -846,7 +849,7 @@ african
 american
 </td>
 <td style="text-align:center;">
-82
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #90ebf8">82</span>
 </td>
 </tr>
 <tr>
@@ -857,7 +860,7 @@ marriage
 equality
 </td>
 <td style="text-align:center;">
-81
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #90ebf8">81</span>
 </td>
 </tr>
 <tr>
@@ -868,7 +871,7 @@ gender
 identity
 </td>
 <td style="text-align:center;">
-75
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #92eefa">75</span>
 </td>
 </tr>
 <tr>
@@ -879,7 +882,7 @@ circuit
 court
 </td>
 <td style="text-align:center;">
-74
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #92eefa">74</span>
 </td>
 </tr>
 <tr>
@@ -890,7 +893,7 @@ amigas
 latinas
 </td>
 <td style="text-align:center;">
-65
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #96f2fd">65</span>
 </td>
 </tr>
 <tr>
@@ -901,7 +904,7 @@ lgbt
 people
 </td>
 <td style="text-align:center;">
-65
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #96f2fd">65</span>
 </td>
 </tr>
 <tr>
@@ -912,7 +915,7 @@ human
 rights
 </td>
 <td style="text-align:center;">
-60
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #98f5ff">60</span>
 </td>
 </tr>
 </tbody>
