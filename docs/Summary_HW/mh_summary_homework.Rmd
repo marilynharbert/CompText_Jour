@@ -31,10 +31,10 @@ Link to initial data: https://github.com/marilynharbert/CompText_Jour/blob/main/
 
 ##Code## Loading libraries
 
-```{r}
-suppressMessages(library(RODBC))
 
-knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, results = 'hide')
+
 
 library(tidyverse)
 library(pdftools)
@@ -119,9 +119,6 @@ create linked index
 # Step 2: Combine lines into one single string
 text_combined <- paste(text, collapse = "\n")
 
-# text_combined <- sub(".*Table of contents", "Table of contents", text_combined)
-
-
 # Step 3: Split the text by the "End of Document" phrase
 documents <- strsplit(text_combined, "_____________________________________________")[[1]]
 ### only 213 elements in documents - should be 216 
@@ -143,7 +140,7 @@ dv_index <- read_lines("../Summary_HW/article_data_dv/dv_1.txt")
 extracted_lines <- dv_index[3:541]
 
 # Print the extracted lines to the console
-cat(extracted_lines, sep = "\n")
+# cat(extracted_lines, sep = "\n")
 
 extracted_lines <- extracted_lines |> 
   as.data.frame() 
@@ -205,7 +202,6 @@ files <- list.files("../Summary_HW/article_data_dv/", pattern="dv.*.txt") %>%
 final_index <- final_data |> 
   inner_join(files, c("index")) |> 
   mutate(filepath = paste0("../Summary_HW/article_data_dv/", filename))
-head(final_index)
 
 create_article_text <- function(row_value) {
   
@@ -314,15 +310,12 @@ clean_df <- articles_df %>%
     "web site:\\s+\\S+" = ""
   ))) 
 
-# only 258 index
 #used Chat GPT to get the regexes in this section 
 # prompts used: 
 # # what is the regex for .
 # # what is the escape character in regular expressions
 # # what R code should I use to remove all strings with "ISSN" and the phrase immediately following that one from a dataset?
 # # give me r code to get rid of any characters that come after "http" but before a space in a string
-
-
 ```
 
 Tokenize the data
@@ -370,7 +363,7 @@ Sample of Data Analysis
 
 Top 20 bigrams
 
-```{r}
+```{r show_results, results='show'}
 bigrams_filtered <- bigrams_separated %>%
   filter(!word1 %in% stop_words$word) %>%
   filter(!word2 %in% stop_words$word)
@@ -380,14 +373,14 @@ bigram_ct <- bigrams_filtered %>%
   filter(!is.na(word1))
 
 top_20_bigrams <- head(bigram_ct, 20)
-top_20_bigrams
+print(top_20_bigrams)
 
 ```
 
 Plot Top 20 Bigrams
 
 ```{r}
-# bigram needs to be one column
+
 bigram_ct_toplot <- head(bigram_ct,20) %>%
   mutate(bigram = paste0(word1, " ", word2)) %>%
   mutate(n = as.numeric(n))
@@ -470,13 +463,13 @@ We examine topics in the data over time by aggregating mean topic proportions pe
 Articles per year
 
 ```{r}
-#install.packages("formattable")
+
 articles_years <- textdata %>% 
   distinct(doc_id, .keep_all=TRUE) %>% 
   count(year) %>% 
   mutate(pct_total= (n/sum(n))) %>% 
   mutate(pct_total= formattable::percent(pct_total)) %>% 
-  # mutate(pct_total = round(pct_total, 1)) %>% 
+  mutate(pct_total = round(pct_total, 1)) %>% 
   arrange(desc(year))
 
 library(kableExtra)
@@ -486,11 +479,6 @@ articles_years %>%
   column_spec(1, bold = T, border_right = T) %>%
   column_spec(2, width = "5em") %>% 
   column_spec(3, width = "5em", background = "yellow") 
-
-
-
-#Fact check 9589 articles
-#sum(articles_decades$n)
 ```
 
 ```{r tm12}
@@ -564,18 +552,16 @@ vizDataFrame <- melt(topic_proportion_per_year, id.vars = "year")
 
 #Examine topic names
 
-```{r}
+```{r show_results, results='show'}
 #enframe(): Converts a named list into a dataframe.
 topics <- enframe(topicNames, name = "number", value = "text") %>% 
   unnest(cols = c(text)) 
   
-topics
+print(topics)
 ```
 ### Review the topics and determine a 1-2 word label after reading the source documents.
 
 ```{r}
-
-#Topic 1	counti citi night mile jail day town morn march juli
 
 theta2 <- as.data.frame(theta)
 
@@ -584,18 +570,17 @@ topic1 <- theta2 %>%
   mutate(file = str_remove(file, "^X"),  # Remove leading 'X'
          line = str_extract(file, "(?<=\\.txt)\\.\\d+")) |>   # Extract number after .txt
   mutate(file = str_remove(file, "\\.\\d+$")) |> 
-  rename(topic1 = '1') |> # looking at first topic: ounti citi night mile jail day town morn march juli
+  rename(topic1 = '1') |> 
   top_n(20, topic1) |> 
   arrange(desc(topic1)) |>  
   select(file, line, topic1) 
-
 
 ```
 
 
 ```{r}
-#add categories
 
+#add categories
 vizDataFrame <- vizDataFrame %>% 
   mutate(category = case_when(
     str_detect(variable,  "chicago work communiti organ lgbt center servic health univers youth") ~ "community_org",
@@ -605,24 +590,27 @@ vizDataFrame <- vizDataFrame %>%
      str_detect(variable, "number law polic offic case peopl year report hiv charg") ~ "legal",
     str_detect(variable, "peopl time year work famili life make love wct thing") ~ "life",
     ))
+
 ```
 
 # Fact Check and Validate Topics
 
 1 - chicago work communiti organ lgbt center servic health univers youth
-2- chicago show perform music gay theatr center event featur halst
+
+2 - chicago show perform music gay theatr center event featur halst
+
 3 - state illinoi counti gay unit race marriag cook elect district
+
 4 - violenc peopl women domest communiti sexual black queer abus report
+
 5 - number law polic offic case peopl year report hiv charg
+
 6 - peopl time year work famili life make love wct thing
 
 
-
-
-##### here #######
-
-### for female_victim 
+### for community_org
 ```{r}
+
 theta2 <- as.data.frame(theta)
 
 community_org <- theta2 %>% 
@@ -638,13 +626,11 @@ community_org  <- tibble::rownames_to_column(community_org, "story_id")
 community_org$story_id <- gsub("X", "", community_org$story_id)
 
 head(community_org$story_id, 20)
-#Checks out
-
 
 ```
 
 
-### for 5_legal_proceedings
+### for legal
 ```{r}
 legal <- theta2 %>% 
   #renaming for a general topic
@@ -659,13 +645,11 @@ legal  <- tibble::rownames_to_column(legal , "story_id")
 legal $story_id <- gsub("X", "", legal $story_id)
 
 head(legal$story_id, 20)
-#Checks out
-
 
 ```
 
 
-### for negro_lynching
+### for domestic_abuse
 ```{r}
 
 domestic_abuse <- theta2 %>% 
@@ -681,16 +665,15 @@ domestic_abuse  <- tibble::rownames_to_column(domestic_abuse , "story_id")
 domestic_abuse $story_id <- gsub("X", "", domestic_abuse $story_id)
 
 head(domestic_abuse$story_id, 20)
-#Checks out 
-#main theme is negros are lynching victims
 
 ```
 
 
 
-#Figure 15: white_paper_topics_oct_19_2024
+#Figure 3: Common Narratives in Windy City Times articles mentioning domestic violence
 
 ```{r}
+
 # plot topic proportions per decade as bar plot
 ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) + 
   geom_bar(stat = "identity") + ylab("proportion") + 
@@ -702,15 +685,10 @@ ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) +
                               "yellow",
                               "darkblue",
                               "green"))+
-   #                           "blue"))+ 
-   #                           #"pink",
-   #                           #"gray",
-   #                           #"orange")) +
-  labs(title = "Common Narratives in Lynching News Coverage",
-       subtitle = "Six probable topics in white press sample. n=270",
-       caption = "Aggregate mean topic proportions per decade. Graphic by (redated - peer review) & (redated - peer review), 10-19-2024")
+  labs(title = "Common Narratives in Windy City Times articles mentioning domestic violence",
+       subtitle = "Six probable topics in article sample. n=270",
+       caption = "Aggregate mean topic proportions per year. Graphic by Marilyn Harbert, 11-30-2024")
 
-# ggsave(here::here("../lynching_press/output_images_tables/Article_Images/Figure_15_white_topics_oct_19_2024.png"),device = "png",width=9,height=6, dpi=800)
 ```
 
 
