@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output: html_document
 ---
 
-##Project Summary##
+## Project Summary
 
 Queer people experience domestic violence differently and thus require different information about domestic violence than straight people. In addition, domestic violence is often framed as a heterosexual women's issue, leaving queer people out of information provided about domestic violence. 
 
@@ -13,7 +13,7 @@ My data for this project is articles discussing domestic violence from the Chica
 
 For this project I will conduct topic modeling on phrases related to domestic violence to understand narratives and topics associated with domestic violence in past public information available to LGBT people. I will compute basic statistics on the articles, and look at the most common bigrams for articles discussing queer domestic violence. I will also conduct sentiment analysis, and (unless I am very surprised by the results) write a specific queer critique of sentiment analysis. 
 
-#Codebook# 
+# Codebook
 
 I am thinking about how to analyze the topic modeling and bigram generation for this project, and I think I have an initial list of codes I might use to categorize the terms I see in order to make sense of the data. 
 - health : terms related to health
@@ -23,18 +23,16 @@ I am thinking about how to analyze the topic modeling and bigram generation for 
 - advocacy : terms related to stopping domestic violence
 - location : terms that refer to locations
 
-#Data#
+# Data
 
 Initial data downloaded in .txt format from Proquest, only top 100 results downloaded. Search was conducted for "domestic violence" AND "LGBTQ+". The publication list for these results was cross-checked with a list of LGBTQ+ publications from Wikipedia to find the LGBTQ+ publication with the most results for these search terms, which was the Chicago based publication "The Windy City". The sample analyzed below is thus the top 100 results of the search in proquest for "domestic violence" from The Windy City. Additionally, the metadata for the articles was downloaded from proquest at the same time. 
 
 Link to initial data: https://github.com/marilynharbert/CompText_Jour/blob/main/docs/Summary_HW/ProQuestDocuments-2024-11-17.txt
 
-##Code## Loading libraries
+## Code 
 
-
-```{r setup, include=FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, results = 'hide')
-
 
 library(tidyverse)
 library(pdftools)
@@ -42,8 +40,6 @@ library(quanteda)
 library(tidytext)
 library(rio)
 library(readxl)
-
-
 library(here)
 library(tidytext)
 library(tm)
@@ -61,33 +57,16 @@ library(remotes)
 library(readtext)
 library(formattable)
 
-#install.packages("here")
-#install.packages("tidytext")
-#install.packages("tm")
-#install.packages("topicmodels")
-#install.packages("reshape2")
-#install.packages("wordcloud")
-#install.packages("pals")
-#install.packages("SnowballC")
-#install.packages("lda")
-#install.packages("ldatuning")
-#install.packages("kableExtra")
-#install.packages("DT")
-#install.packages("flextable")
-#install.packages("remotes")
-#install.packages("readtext")
-#install.packages("formattable")
 ```
 
-set options
+### Set options
+
 ```{r}
 options(stringsAsFactors = F)         # no automatic data transformation
 options("scipen" = 100, "digits" = 4) # suppress math annotation
-
 ```
 
-
-Extracting data from the .txt file
+### Extracting data from the .txt file
 
 ```{r}
 # Set the path to your .txt file
@@ -103,17 +82,17 @@ text <- text[-c(1:4)]
 gay_dv_articles <- data.frame(text)
 ```
 
-Extract metadata from excel file
+### Extract metadata from excel file
+
 ```{r}
 metadata <- read_excel("~/Code/CompText_Jour/docs/Summary_HW/ProQuestDocuments-2024-11-27 (1).xls")
 
 # create indices
 metadata_dv_windy_city <- metadata %>%
   mutate(index = row_number())
-
 ```
 
-create linked index
+### create linked index
 
 ```{r}
 # Step 2: Combine lines into one single string
@@ -245,7 +224,7 @@ articles_df <- articles_df %>%
 write.csv(articles_df, "../Summary_HW/dvlinkedindex.csv")
 ```
 
-get rid of the junk
+### Cleaning: get rid of the junk! 
 
 ```{r}
 #clean up text column
@@ -318,7 +297,7 @@ clean_df <- articles_df %>%
 # # give me r code to get rid of any characters that come after "http" but before a space in a string
 ```
 
-Tokenize the data
+### Tokenize the data
 
 ```{r}
 #Tokenize the data
@@ -339,7 +318,7 @@ bigrams_separated <- bigrams_separated %>%
   filter(!grepl('[0-9]',word2)) 
 ```
 
-Descriptive statistics
+### Descriptive statistics
 
 ```{r}
 # number of lines
@@ -356,14 +335,11 @@ count_df <- clean_df %>%
   group_by(index) %>%
   summarise(count_words = str_count(text, '\\S+')) %>%
   summarise(count_lines = sum(count_words))
-
 ```
 
-Sample of Data Analysis
+## Top 20 bigrams
 
-Top 20 bigrams
-
-```{r show_results, results='show'}
+```{r}
 bigrams_filtered <- bigrams_separated %>%
   filter(!word1 %in% stop_words$word) %>%
   filter(!word2 %in% stop_words$word)
@@ -373,14 +349,19 @@ bigram_ct <- bigrams_filtered %>%
   filter(!is.na(word1))
 
 top_20_bigrams <- head(bigram_ct, 20)
-print(top_20_bigrams)
-
 ```
 
-Plot Top 20 Bigrams
+```{r show_results_2, results='show'}
+formattable(top_20_bigrams, 
+            align =c("c","c","c","c","c", "c", "c", "c", "r"), 
+            list(`Top 20 Bigrams` = formatter(
+              "span", style = ~ style(color = "black",font.weight = "bold")) 
+))
+```
+
+## Plot Top 20 Bigrams
 
 ```{r}
-
 bigram_ct_toplot <- head(bigram_ct,20) %>%
   mutate(bigram = paste0(word1, " ", word2)) %>%
   mutate(n = as.numeric(n))
@@ -398,7 +379,8 @@ bi_plot <- ggplot(data=bigram_ct_toplot, aes(fill = n, x = reorder(bigram, n), y
 plot(bi_plot)
 ```
 
-map years
+## map years
+
 ```{r}
 year_df <- clean_df %>%
   select(year, index) %>%
@@ -416,7 +398,7 @@ plot(year_plot)
 ```
 
 
-topic modeling
+# topic modeling
 ```{r}
 # create new dataframe from cleaned data to have just the text
 textdata <- clean_df %>% 
@@ -435,7 +417,6 @@ processedCorpus <- tm_map(processedCorpus, removePunctuation, preserve_intra_wor
 processedCorpus <- tm_map(processedCorpus, removeNumbers)
 processedCorpus <- tm_map(processedCorpus, stemDocument, language = "en")
 processedCorpus <- tm_map(processedCorpus, stripWhitespace)
-
 ```
 
 ```{r tm3a}
@@ -451,19 +432,14 @@ dim(DTM)
 sel_idx <- slam::row_sums(DTM) > 0
 DTM <- DTM[sel_idx, ]
 textdata <- textdata[sel_idx, ]
-#5 term minimum[1] 1387 3019
-#5 term minimum[1] 308597 10339
-
 ``` 
 
 
 We examine topics in the data over time by aggregating mean topic proportions per year These aggregated topic proportions can then be visualized, e.g. as a bar plot. 
 
-
-Articles per year
+## Articles per year
 
 ```{r}
-
 articles_years <- textdata %>% 
   distinct(doc_id, .keep_all=TRUE) %>% 
   count(year) %>% 
@@ -540,17 +516,15 @@ topic_data <- data.frame(theta_aligned, year = textdata_filtered$year)
 # Step 3: Aggregate data
 topic_proportion_per_year <- aggregate(. ~ year, data = topic_data, FUN = mean)
 
-
 # get mean topic proportions per decade
 # topic_proportion_per_decade <- aggregate(theta, by = list(decade = textdata$decade), mean)
 # set topic names to aggregated columns
 colnames(topic_proportion_per_year)[2:(K+1)] <- topicNames
 # reshape data frame
 vizDataFrame <- melt(topic_proportion_per_year, id.vars = "year")
-
 ```
 
-#Examine topic names
+### Examine topic names
 
 ```{r show_results, results='show'}
 #enframe(): Converts a named list into a dataframe.
@@ -562,7 +536,6 @@ print(topics)
 ### Review the topics and determine a 1-2 word label after reading the source documents.
 
 ```{r}
-
 theta2 <- as.data.frame(theta)
 
 topic1 <- theta2 %>% 
@@ -574,12 +547,10 @@ topic1 <- theta2 %>%
   top_n(20, topic1) |> 
   arrange(desc(topic1)) |>  
   select(file, line, topic1) 
-
 ```
 
-
+### add categories
 ```{r}
-
 #add categories
 vizDataFrame <- vizDataFrame %>% 
   mutate(category = case_when(
@@ -590,7 +561,6 @@ vizDataFrame <- vizDataFrame %>%
      str_detect(variable, "number law polic offic case peopl year report hiv charg") ~ "legal",
     str_detect(variable, "peopl time year work famili life make love wct thing") ~ "life",
     ))
-
 ```
 
 # Fact Check and Validate Topics
@@ -610,7 +580,6 @@ vizDataFrame <- vizDataFrame %>%
 
 ### for community_org
 ```{r}
-
 theta2 <- as.data.frame(theta)
 
 community_org <- theta2 %>% 
@@ -624,9 +593,6 @@ community_org <- theta2 %>%
 community_org  <- tibble::rownames_to_column(community_org, "story_id") 
 
 community_org$story_id <- gsub("X", "", community_org$story_id)
-
-head(community_org$story_id, 20)
-
 ```
 
 
@@ -643,9 +609,6 @@ legal <- theta2 %>%
 legal  <- tibble::rownames_to_column(legal , "story_id") 
 
 legal $story_id <- gsub("X", "", legal $story_id)
-
-head(legal$story_id, 20)
-
 ```
 
 
@@ -663,17 +626,13 @@ domestic_abuse <- theta2 %>%
 domestic_abuse  <- tibble::rownames_to_column(domestic_abuse , "story_id") 
 
 domestic_abuse $story_id <- gsub("X", "", domestic_abuse $story_id)
-
-head(domestic_abuse$story_id, 20)
-
 ```
 
 
 
-#Figure 3: Common Narratives in Windy City Times articles mentioning domestic violence
+### Figure 3: Common Narratives in Windy City Times articles mentioning domestic violence
 
 ```{r}
-
 # plot topic proportions per decade as bar plot
 ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) + 
   geom_bar(stat = "identity") + ylab("proportion") + 
@@ -688,7 +647,6 @@ ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) +
   labs(title = "Common Narratives in Windy City Times articles mentioning domestic violence",
        subtitle = "Six probable topics in article sample. n=270",
        caption = "Aggregate mean topic proportions per year. Graphic by Marilyn Harbert, 11-30-2024")
-
 ```
 
 
