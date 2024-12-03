@@ -30,7 +30,7 @@ get_sentiments("afinn")
 
 ```{r echo = FALSE}
 library(tidytext)
-load("../data/afinn.rda")
+load("data/afinn.rda")
 afinn
 ```
 

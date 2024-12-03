@@ -534,7 +534,11 @@ vizDataFrame <- melt(topic_proportion_per_year, id.vars = "year")
 topics <- enframe(topicNames, name = "number", value = "text") %>% 
   unnest(cols = c(text)) 
   
-print(topics)
+topics <- topics %>%
+  kbl() %>%
+  kable_styling()
+
+topics
 ```
 ### Review the topics and determine a 1-2 word label after reading the source documents.
 
@@ -654,79 +658,99 @@ ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) +
 
 
 
+# Sentiment Analysis
 
-
-
-sentiment analysis
 ```{r}
 get_sentiments("afinn")
 
-load("../data/afinn.rda")
-
+load("../Summary_HW/data/afinn.rda")
 ```
 
+### Check out just 
 ```{r}
-nrc_joy <- get_sentiments("nrc") %>% 
-  filter(sentiment == "joy")
+nrc_articles <- get_sentiments("nrc") 
 
-tidy_books %>%
-  filter(book == "Emma") %>%
-  inner_join(nrc_joy) %>%
+tidy_articles <- clean_df %>%
+  unnest_tokens(word, text) 
+
+tidy_articles %>%
+  inner_join(nrc_articles) %>%
   count(word, sort = TRUE)
 
 ```
 
 
 ```{r}
-jane_austen_sentiment <- tidy_books %>%
+bing_articles <- tidy_articles %>%
   inner_join(get_sentiments("bing")) %>%
-  count(book, index = linenumber %/% 80, sentiment) %>%
+  count(index, sentiment) %>%
   pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>% 
   mutate(sentiment = positive - negative)
 ```
 
 ```{r}
-
-ggplot(jane_austen_sentiment, aes(index, sentiment, fill = book)) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~book, ncol = 2, scales = "free_x")
+ggplot(bing_articles, aes(index, sentiment)) +
+  geom_col(show.legend = FALSE) 
 ```
 
 ```{r}
-afinn <- pride_prejudice %>% 
+afinn <- tidy_articles %>% 
   inner_join(get_sentiments("afinn")) %>% 
-  group_by(index = linenumber %/% 80) %>% 
+  group_by(index) %>% 
   summarise(sentiment = sum(value)) %>% 
   mutate(method = "AFINN")
 
 bing_and_nrc <- bind_rows(
-  pride_prejudice %>% 
+  tidy_articles %>% 
     inner_join(get_sentiments("bing")) %>%
     mutate(method = "Bing et al."),
-  pride_prejudice %>% 
+  tidy_articles %>% 
     inner_join(get_sentiments("nrc") %>% 
                  filter(sentiment %in% c("positive", 
                                          "negative"))) %>%
     mutate(method = "NRC")) %>%
-  count(method, index = linenumber %/% 80, sentiment) %>%
+  count(method, index, sentiment) %>%
   pivot_wider(names_from = sentiment,
               values_from = n,
               values_fill = 0) %>% 
   mutate(sentiment = positive - negative)
 
+
+bind_rows(afinn, bing_and_nrc) %>%
+  ggplot(aes(index, sentiment, fill = method)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~method, ncol = 1, scales = "free_y")
+
 ```
 
-```{r}
+```{r show_results_4, results='show'}
+bing_word_counts <- tidy_articles %>%
+  inner_join(get_sentiments("bing")) %>%
+  count(word, sentiment, sort = TRUE) %>%
+  ungroup()
 
-get_sentiments("nrc") %>% 
-  filter(sentiment %in% c("positive", "negative")) %>% 
-  count(sentiment)
+bng_cnts <- head(bing_word_counts, 20) %>%
+  kbl() %>%
+  kable_styling()
+
+bng_cnts
 ```
+## THINKS QUEER IS NEGATIVE
+## HOMOPHOBIC
 
+## Words left out of sentiment analysis 
+```{r show_results_3, results='show'}
+left_out <- tidy_articles %>%
+  anti_join(get_sentiments("bing")) %>%
+  filter(!word %in% stop_words$word) %>%
+  count(word, sort = TRUE) %>%
+  ungroup()
 
-```{r}
+lft_out <- head(left_out, 20) %>%
+  kbl() %>%
+  kable_styling()
 
-
+lft_out
 ```
 
 
