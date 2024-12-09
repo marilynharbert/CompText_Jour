@@ -9,30 +9,31 @@ output: html_document
 
 Queer people experience domestic violence differently and thus require different information about domestic violence than straight people. In addition, domestic violence is often framed as a heterosexual women's issue, leaving queer people out of information provided about domestic violence. 
 
-My data for this project is articles discussing domestic violence from the Chicago based LGBTQ+ newspaper "The Windy City".
+My data for this project is articles discussing domestic violence from the Chicago based LGBTQ+ newspaper "The Windy City" from the year 2008 to 2022. The timeframe is due to data availability constraints. 
 
-For this project I will conduct topic modeling on phrases related to domestic violence to understand narratives and topics associated with domestic violence in past public information available to LGBT people. I will compute basic statistics on the articles, and look at the most common bigrams for articles discussing queer domestic violence. I will also conduct sentiment analysis, and write a specific queer critique of sentiment analysis. 
-# Codebook
-
-I am thinking about how to analyze the topic modeling and bigram generation for this project, and I think I have an initial list of codes I might use to categorize the terms I see in order to make sense of the data. 
-- health : terms related to health
-- identity : terms related to identity/demographics
-- violence : terms that reference violence or abuse directly
-- community : terms related to community or non-profit groups
-- advocacy : terms related to stopping domestic violence
-- location : terms that refer to locations
+For this project I conducted topic modeling on phrases related to domestic violence to understand narratives and topics associated with domestic violence in past public information available to LGBT people. I computed basic statistics on the articles, and looked at the most common bigrams for articles discussing queer domestic violence. I also conducted sentiment analysis and will discuss the limitations of that method with this data
 
 # Data
 
-Initial data downloaded in .txt format from Proquest, only top 100 results downloaded. Search was conducted for "domestic violence" AND "LGBTQ+". The publication list for these results was cross-checked with a list of LGBTQ+ publications from Wikipedia to find the LGBTQ+ publication with the most results for these search terms, which was the Chicago based publication "The Windy City". The sample analyzed below is thus the top 100 results of the search in proquest for "domestic violence" from The Windy City. Additionally, the metadata for the articles was downloaded from proquest at the same time. 
+The data was downloaded in .txt format from Proquest, and the metadata was downloaded separately in execl format. A search was conducted on ProQuest for the following terms in the Windy City Times: 
 
-Link to initial data: https://github.com/marilynharbert/CompText_Jour/blob/main/docs/Summary_HW/ProQuestDocuments-2024-11-17.txt
+“domestic violence” OR “intimate partner violence” OR “partner aggress*” OR “partner violence” OR “partner abuse” OR “domestic abuse” OR “intimate partner abuse” OR “wife abuse” OR “spousal abuse” OR “women abuse” OR “marital violence” OR “marital abuse”
+
+These terms were derived from two literature reviews of intimate partner violence: 
+
+- Ali, Parveen Azam, Katie Dhingra, and Julie McGarry. "A literature review of intimate partner violence and its classifications." Aggression and violent behavior 31 (2016): 16-25.
+
+- Laskey, Philippa, Elizabeth A. Bates, and Julie C. Taylor. "A systematic literature review of intimate partner violence victimisation: An inclusive review across gender and sexuality." Aggression and Violent Behavior 47 (2019): 1-11.
+
+Link to data: https://github.com/marilynharbert/CompText_Jour/blob/main/docs/Summary_HW/ProQuestDocuments-2024-11-27%20(1).txt
 
 ## Code 
 
-```{r setup, include = FALSE}
+```{r}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, results = 'hide')
+```
 
+```{r setup}
 library(tidyverse)
 library(pdftools)
 library(quanteda)
@@ -55,6 +56,7 @@ library(flextable)
 library(remotes)
 library(readtext)
 library(formattable)
+library(viridis)
 ```
 
 ### Set options
@@ -97,7 +99,6 @@ text_combined <- paste(text, collapse = "\n")
 
 # Step 3: Split the text by the "End of Document" phrase
 documents <- strsplit(text_combined, "_____________________________________________")[[1]]
-### only 213 elements in documents - should be 216 
 
 # Step 4: Write each section to a new file
 output_dir <- "../Summary_HW/article_data_dv/"
@@ -105,11 +106,8 @@ for (i in seq_along(documents)) {
   output_file <- file.path(output_dir, paste0("dv_", i, ".txt"))
   writeLines(documents[[i]], output_file)
 }
-### i goes up to 213 
 
 cat("Files created:", length(documents), "\n")
-
-# says it created 213 files
 
 dv_index <- read_lines("../Summary_HW/article_data_dv/dv_1.txt")
 # Extract lines 3 to 541
@@ -213,7 +211,7 @@ articles_df <- articles_df %>%
   inner_join(final_index)
 
 articles_df <- articles_df %>%
-  slice(-c(2:533)) |> 
+#  slice(-c(2:533)) |> 
   #gets rid of blank rows
     filter(trimws(sentence) != "") 
 
@@ -315,21 +313,9 @@ bigrams_separated <- bigrams_separated %>%
 
 ### Descriptive statistics
 
-```{r}
-# number of lines
-count_lines <- clean_df %>%
-  summarise(count_lines = n())
-
-# number of lines per article
-count_lines_index <- clean_df %>%
-  group_by(index) %>%
-  summarise(count_lines = n())
-
-# number of words per article
-count_df <- clean_df %>%
-  group_by(index) %>%
-  summarise(count_words = str_count(text, '\\S+')) %>%
-  summarise(count_lines = sum(count_words))
+```{r descriptive stats, results = 'show'}
+# Print the number of columns and rows of the linked index. 
+print(glimpse(clean_df))
 ```
 
 ## Top 20 bigrams
@@ -370,31 +356,15 @@ bi_plot <- ggplot(data=bigram_ct_toplot, aes(fill = n, x = reorder(bigram, n), y
   labs(y = NULL, 
        x = "Bigram") + 
   coord_flip() +
-  ggtitle("Top 20 Bigrams in Articles mentioning Domestic Violence\npublished in The Windy City Times") + 
   theme(legend.position="none") + 
-  expand_limits(x = 0, y = 0)
+  expand_limits(x = 0, y = 0) + 
+  labs(title = "Top 20 Bigrams in Articles mentioning Domestic Violence\npublished in The Windy City Times",
+       caption = "n = 270. Graphic by Marilyn Harbert, 11-30-2024")
+  
 
 plot(bi_plot)
 ```
 
-### Initial Findings: 
-Several queer distinctive terms stand out: 
-- lgbt community
-- hiv aids
-- sexual orientation
-- openly gay
-- gays lesbians 
-- lgbtq community
-- marriage equality
-- gender identity
-- lgbt people
-
-Several other LGBT issues seems to be intermixed with domestic violence, like "marriage equality" and "human rights" and "hiv aids". Maybe domestic violence is less likely to get articles just dedicated to it as an issue, and more likely to be mentioned among many issues that the LGBTQ community faces. 
-
-It seems like avocacy groups are involved in queer DV: 
-- executive director
-- amigas latinas
-- illinois united
 
 ### Map years
 
@@ -408,16 +378,13 @@ year_plot <- ggplot(data=year_df, aes(year, n, fill = n)) +
   geom_col() +
   labs(y = NULL, 
        x = "year") + 
-  ggtitle("Articles over time mentioning Domestic Violence\npublished in The Windy City Times") + 
-  theme(legend.position="none") 
+  theme(legend.position="none") +   
+  scale_color_viridis(option = "D") +
+  labs(title = "Articles over time mentioning Domestic Violence\npublished in The Windy City Times",
+       caption = "n = 270. Graphic by Marilyn Harbert, 11-30-2024")
 
 plot(year_plot)
 ```
-
-### Initial Findings
-
-2012 should be looked at as a year when possibly a prominent domestic violence case occured in Chicago, which might explain the spike in coverage.
-N is small, but unclear why the drop off in covereage in 2021 and 2022, especially as DV increased as an issue with Covid. 
 
 # topic modeling
 ```{r}
@@ -536,8 +503,6 @@ topic_data <- data.frame(theta_aligned, year = textdata_filtered$year)
 # Step 3: Aggregate data
 topic_proportion_per_year <- aggregate(. ~ year, data = topic_data, FUN = mean)
 
-# get mean topic proportions per year
-# topic_proportion_per_year <- aggregate(theta, by = list(year = textdata$year), mean)
 # set topic names to aggregated columns
 colnames(topic_proportion_per_year)[2:(K+1)] <- topicNames
 # reshape data frame
@@ -557,33 +522,6 @@ topics <- topics %>%
 
 topics
 ```
-
-### Initial Findings
-
-I experimented with changing k and found 6 created topic groups that made the most sense, and I leaned towards keeping k low to avoid overfitting on a small dataset. 
-
-community_org - 1 - chicago work communiti organ lgbt center servic health univers youth
-
-theater - 2 - chicago show perform music gay theatr center event featur halst
-
-elect - 3 - state illinoi counti gay unit race marriag cook elect district
-
-domestic_abuse - 4 - violenc peopl women domest communiti sexual black queer abus report
-
-legal - 5 - number law polic offic case peopl year report hiv charg
-
-life - 6 - peopl time year work famili life make love wct thing
-
-
-Community_orgs makes sense if non-profit groups are involved in DV service work. 
-
-Theater suggests that articles about DV are intermingled with other topics; I found several articles that were just a calendar of monthly events. I suspect there is some regular DV related event. 
-
-Elect suggests there was a local election where DV was an issue that came up. 
-
-Domestic abuse and Legal seem the most topical. 
-
-And life is confusing as a topic. Honestly I'm not sure what to call it or what it is capturing. 
 
 
 ### Review the topics and determine a 1-2 word label after reading the source documents.
@@ -607,12 +545,12 @@ topic1 <- theta2 %>%
 #add categories
 vizDataFrame <- vizDataFrame %>% 
   mutate(category = case_when(
-    str_detect(variable,  "chicago work communiti organ lgbt center servic health univers youth") ~ "community_org",
-    str_detect(variable, "chicago show perform music gay theatr center event featur halst") ~ "theater",
-    str_detect(variable, "state illinoi counti gay unit race marriag cook elect district") ~ "elect",
-    str_detect(variable, "violenc peopl women domest communiti sexual black queer abus report") ~ "domestic_abuse",
-     str_detect(variable, "number law polic offic case peopl year report hiv charg") ~ "legal",
-    str_detect(variable, "peopl time year work famili life make love wct thing") ~ "life",
+    str_detect(variable,  "chicago work communiti organ youth health center servic year lgbt") ~ "community_org",
+    str_detect(variable, "chicago show gay perform music center theatr halst featur event") ~ "theater",
+    str_detect(variable, "illinoi state counti race number cook unit court district judg") ~ "elect",
+    str_detect(variable, "violenc peopl women domest report communiti sexual black abus transgend") ~ "domestic_abuse",
+     str_detect(variable, "lgbt gay marriag equal communiti right lesbian immigr peopl sex") ~ "rights",
+    str_detect(variable, "peopl time year work famili make wct life love thing") ~ "life",
     ))
 ```
 
@@ -636,19 +574,19 @@ community_org$story_id <- gsub("X", "", community_org$story_id)
 ```
 
 
-### For legal
+### For rights
 ```{r}
-legal <- theta2 %>% 
+rights <- theta2 %>% 
   #renaming for a general topic
-  rename(legal = '5') %>% 
-  top_n(20, legal ) %>%
-  arrange(desc(legal )) %>% 
-  select(legal )
+  rename(rights = '5') %>% 
+  top_n(20, rights ) %>%
+  arrange(desc(rights)) %>% 
+  select(rights)
 
 # Apply rownames_to_column
-legal  <- tibble::rownames_to_column(legal , "story_id") 
+rights  <- tibble::rownames_to_column(rights, "story_id") 
 
-legal $story_id <- gsub("X", "", legal $story_id)
+rights$story_id <- gsub("X", "", rights$story_id)
 ```
 
 
@@ -670,95 +608,54 @@ domestic_abuse $story_id <- gsub("X", "", domestic_abuse $story_id)
 ### Figure 3: Common Narratives in Windy City Times articles mentioning domestic violence
 
 ```{r}
-# plot topic proportions per decade as bar plot
+library("viridis") 
+
+# plot topic proportions per year as bar plot
 ggplot(vizDataFrame, aes(x=year, y=value, fill=category)) + 
   geom_bar(stat = "identity") + ylab("proportion") + 
-  scale_fill_manual(values = paste0(alphabet(20), "FF"), name = "year") + 
+  scale_color_viridis(option = "D")+
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-   scale_fill_manual(values=c("#9933FF",
-                              "#33FFFF",
-                              "red",
-                              "yellow",
-                              "darkblue",
-                              "green"))+
-  labs(title = "Common Narratives in Windy City Times articles mentioning domestic violence",
+  labs(title = "Topics in Windy City Times articles mentioning domestic violence over time",
        subtitle = "Six probable topics in article sample. n=270",
        caption = "Aggregate mean topic proportions per year. Graphic by Marilyn Harbert, 11-30-2024")
 ```
 
-### Initial Findings:
-
-There seems to be consistency in topic coverage in years with enough articles to make a judgement. 
-
-
 # Sentiment Analysis
-
-```{r}
-get_sentiments("afinn")
-
-load("../Summary_HW/data/afinn.rda")
-```
-
-### Initial NRC joining
-```{r}
-nrc_articles <- get_sentiments("nrc") 
-
-tidy_articles <- clean_df %>%
-  unnest_tokens(word, text) 
-
-tidy_articles %>%
-  inner_join(nrc_articles) %>%
-  count(word, sort = TRUE)
-
-```
 
 ### Plot Bing sentiment analysis
 
 ```{r}
+tidy_articles <- clean_df %>%
+  unnest_tokens(word, text) 
+
+
 bing_articles <- tidy_articles %>%
   inner_join(get_sentiments("bing")) %>%
   count(index, sentiment) %>%
+  pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>% 
+  mutate(sentiment = positive - negative)
+
+# for year plotting
+year_bing_articles <- tidy_articles %>%
+  inner_join(get_sentiments("bing")) %>%
+  count(sentiment, year) %>%
   pivot_wider(names_from = sentiment, values_from = n, values_fill = 0) %>% 
   mutate(sentiment = positive - negative)
 ```
 
 ```{r}
 ggplot(bing_articles, aes(index, sentiment)) +
-  geom_col(show.legend = FALSE) 
+  geom_col(show.legend = FALSE) + 
+      labs(title = "Sentiment in articles  mentioning domestic violence\n published in the Windy City Times",
+           subtitle = "Sentiment measured per article",
+       caption = "n = 270. Graphic by Marilyn Harbert, 12-08-2024") 
 ```
 
-### Initial Findings
-
-More positive words than negative. This suggests low density of coverage of DV in articles mentioning it, as DV is a negative subject. Alternately, the sentiment analysis may not be picking up the negativity of the words associated with DV. 
-
-```{r, include = FALSE}
-afinn <- tidy_articles %>% 
-  inner_join(get_sentiments("afinn")) %>% 
-  group_by(index) %>% 
-  summarise(sentiment = sum(value)) %>% 
-  mutate(method = "AFINN")
-
-bing_and_nrc <- bind_rows(
-  tidy_articles %>% 
-    inner_join(get_sentiments("bing")) %>%
-    mutate(method = "Bing et al."),
-  tidy_articles %>% 
-    inner_join(get_sentiments("nrc") %>% 
-                 filter(sentiment %in% c("positive", 
-                                         "negative"))) %>%
-    mutate(method = "NRC")) %>%
-  count(method, index, sentiment) %>%
-  pivot_wider(names_from = sentiment,
-              values_from = n,
-              values_fill = 0) %>% 
-  mutate(sentiment = positive - negative)
-
-
-#bind_rows(afinn, bing_and_nrc) %>%
-#  ggplot(aes(index, sentiment, fill = method)) +
-#  geom_col(show.legend = FALSE) +
-#  facet_wrap(~method, ncol = 1, scales = "free_y")
-
+```{r}
+ggplot(year_bing_articles, aes(x = year, y = sentiment, fill = sentiment)) +
+  geom_col(show.legend = FALSE) + 
+    labs(title = "Sentiment in articles over time mentioning domestic violence\n published in the Windy City Times",
+       caption = "n = 270. Graphic by Marilyn Harbert, 12-08-2024") 
 ```
 
 ### Bing top words count
@@ -775,17 +672,7 @@ bng_cnts <- head(bing_word_counts, 20) %>%
 bng_cnts
 ```
 
-### Initial Findings
 
-## Queer = negative, Intimate = positive
-
-1. Categorizing queer as negative is homophobic.
-
-2. This might not be the tool for me. 
-
-With the specific language used in the articles I'm analyzing, like terms like "intimate partner violence" end up categorized as positive because "intimate" is categorized as positive. This might be a hammer when I need a laser. 
-
-Additionally, I'm confused why "skinny" is so high up on the list of words?
 
 
 ## Words left out of sentiment analysis 
@@ -803,14 +690,84 @@ lft_out <- head(left_out, 20) %>%
 lft_out
 ```
 
-### Initial Findings
+# Analysis Memo and Codebook
 
-Above is the list of terms left out of the sentiment analysis I conducted with Bing. 
+## Codebook
 
-Key terms like "community", "violence", "domestic" and "hiv" are left out, which points to the small size of the sentiment analysis dataset. It misses key very frequent terms, and with that misses a lot of the sentiment in the articles. 
+To do more detailed qualitative content analysis on these articles, I have created an initial code book based on the analysis I've done and previou knowledge of terms and themes that might appear. 
+
+- health : terms related to health
+- identity : terms related to identity/demographics
+- violence : terms that reference violence or abuse directly
+- community : terms related to community or non-profit groups
+- advocacy : terms related to stopping domestic violence
+- location : terms that refer to locations
+- politic : terms related to political officials or elections
+- rights : terms related to lgbtq+ rights, like marriage equality
+
+## Analysis Memo
+
+### Bigrams
+
+When examining the top 20 bigrams in the Windy City articles that contain mentions of domestic violence, several distinctive queer terms stand out
+- lgbt community
+- hiv aids
+- sexual orientation
+- openly gay
+- gays lesbians 
+- lgbtq community
+- marriage equality
+- gender identity
+- lgbt people
+
+This suggests that there may be language specific to LGBTQ individuals in articles talking about domestic violence. This would be positive, as previously discussed LGBTQ domestic violence can be experienced differently than straight domestic violence, which would require LGBTQ+ specific information in news aritcles about it. 
+
+Several other LGBT issues seems to be intermixed with domestic violence, like "marriage equality" and "human rights" and "hiv aids". Alternately, maybe domestic violence is less likely to get articles just dedicated to it as an issue, and more likely to be mentioned among many issues that the LGBTQ community faces. 
+
+Looking at the top 20 bigrams, it seems like there are also prominent advocacy groups involved in domestic violence in Chicago due to the presence of "executive director", "amigas latinas", and "illinois united". 
+
+### Articles over time
+
+Based on the graph of articles mentioning domestic violence in the Windy City Times over time, 2012 should be looked at as a year when possibly a prominent domestic violence case occured in Chicago, which might explain the spike in coverage. Additionally, the total number of articles is small, but it is unclear why there is a drop off in covereage in 2021 and 2022, especially as nationwide domestic violence increased as an issue with Covid and the isolation that resulted from it. 
+
+### Topic Modeling
+
+With topic modeling, I experimented with changing k and found that k=6 created topic groups that made the most sense, and I leaned towards keeping k low to avoid overfitting on a small dataset. The topics are below, with the single word short hands. 
+
+Topic1 - life - peopl time year work famili make wct life love thing
+Topic2 - community_org - chicago work communiti organ youth health center servic year lgbt
+Topic3 - domestic_violence - violenc peopl women domest report communiti sexual black abus transgend
+Topic4 - rights - lgbt gay marriag equal communiti right lesbian immigr peopl sex
+Topic5 - theater - chicago show gay perform music center theatr halst featur event
+Topic6 - elect - illinoi state counti race number cook unit court district judg
+
+Community_Org: The community_org topic makes sense if non-profit groups are involved in domestic violence service work. 
+
+Life: Looking at the topics, the life topic is the one that made the least sense. It has vague terms like "people", "time", "year" and "work" which do not seem particularly relevant to the topic of domestic violence. 
+
+Theater: The theater topic suggests that articles about DV are intermingled with other topics; Looking into the article titles I found several articles that were just a calendar of monthly events which may partially explain this. 
+
+Elect: The election topic suggests that there may have been a local election where DV was an issue that came up. It may also be related to legal proceedings related to domestic violence with terms like "court" and "judg".
+
+Rights: The rights topic seems to be about a combination of LGBT rights issues like marriage equality and immigration. Like the bigram analysis it further suggests that sometimes when domestic violence comes up in the context of LGBTQ people, it may not come up alone but rather in the context of other issues that the LGBTQ community faces.  
+
+Domestic Abuse: The domestic abuse topic makes the most sense, and seems to also have ties to LGBT specific content about domestic abuse because of the presence of "transgend" in the topic word list.  
 
 
+### Sentiment Analysis 
 
-# THANK YOU
+Looking at the plot of the Bing sentiment analysis per article, there are far more positive articles than negative articles. This is surprising considering what each article has in common is that they mention domestic violence. This suggests low density of coverage of domestic violence in articles mentioning it, as domestic violence is a negative subject. Alternately, the sentiment analysis may not be picking up the negativity of the words associated with DV. 
 
-# FEEDBACK WELCOME
+Looking at the sentiment over time, and ignoring the last few years due to a low number of articles during those years, it seems that sentiment is fairly consistently positive, except for a significant dip in 2016. This points to a possible especially bad incident being covered in the newspaper. 
+
+Taking a closer look at the words included in the sentiment anlysis with the highest frequency in the articles, I can see that there are a few issues. 
+
+First the word "intimate" as in "intimate partner violence", a common term for domestic violence, is categorized as postive, which points to one reason why there might be so much positive sentiment in the articles analyzed. Domestic violence has a specific set of terms associated with it, and the negativity of those terms might not be captured by this general use lexicon based sentiment anlaysis tool. 
+
+Also, I can see that "queer" is one of the top terms, and it is categorized as negative. This is homophobic, as queer is a terms widely reclaimed now by LGBTQ+ people and used descriptively as an umbrella term for LGBTQ+ people. This points to another problem with the lexicon based sentiment analysis approach. It was constructed without an eye towards biases of those constructing it, in this case towards LGBTQ+ individuals. This makes it not a very useful tool for topics focusing on the LGBTQ+ community. 
+
+Additionally, looking at the words left out of the sentiment analysis I conducted with Bing, I can see that many relevant terms are not being included in the analysis. Key terms like "community", "violence", "domestic" and "hiv" are left out, which points to the small size of the sentiment analysis dataset. It misses key very frequent terms, and with that misses a lot of the sentiment in the articles. 
+
+Overall, lexicon based sentiment analysis is not the right tool for this work. 
+
+
